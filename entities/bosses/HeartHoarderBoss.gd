@@ -23,7 +23,7 @@ var sword_projectile = load("res://entities/bosses/projectiles/HeartHorderSwordP
 var pillar_attack_projectile = load("res://entities/bosses/projectiles/HeartHorderPillarsAttackProjectile.tscn")
 var boomerang_attack_projectile = load("res://entities/bosses/projectiles/HeartHorderBoomerangAttack.tscn")
 
-var item_drop = load("res://items/bosses/ItemStoneGolem.tscn")
+var item_drop = load("res://items/bosses/ItemFireballSkill.tscn")
 
 export var current_state = IDLE
 
@@ -152,15 +152,13 @@ func spawn_swords():
 				sword_projectile_instance.global_position = Vector2(global_position.x+52, global_position.y-24)
 		get_parent().add_child(sword_projectile_instance)
 		yield(get_tree().create_timer(0.3), "timeout")
-		print(global_position)
-		print(sword_projectile_instance.global_position)
 
 
 func spawn_pillars():
 	for i in 7:
 		yield(get_tree().create_timer(0.1), "timeout")
 		var pillar_attack_projectile_instance = pillar_attack_projectile.instance()
-		pillar_attack_projectile_instance.global_position = Vector2(80 + (i*90), 345)
+		pillar_attack_projectile_instance.global_position = Vector2(80 + (i*90), 335)
 		get_parent().add_child(pillar_attack_projectile_instance)
 
 
