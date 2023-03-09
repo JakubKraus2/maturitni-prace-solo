@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://items/bosses/ItemFireballSkill.gd" type="Script" id=1]
+[ext_resource path="res://assets/item-texture-Sheet-heart-horder.png" type="Texture" id=2]
 [ext_resource path="res://fonts/joystix monospace.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/item-texture-Sheet.png" type="Texture" id=4]
 [ext_resource path="res://entities/bosses/AnimationTree.gd" type="Script" id=6]
 [ext_resource path="res://items/itemPopup.tscn" type="PackedScene" id=7]
 
@@ -145,11 +145,10 @@ collision_layer = 0
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 0.717647, 0.12549, 0.12549, 1 )
 z_index = 1025
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 hframes = 11
-frame = 5
+frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
@@ -178,7 +177,7 @@ parameters/conditions/pick = false
 script = ExtResource( 6 )
 
 [node name="itemPopup" parent="." instance=ExtResource( 7 )]
-item_file = "res://items/json/stone_golem_item/stone_golem_skill_item.json"
+item_file = "res://items/json/fireball_item/fireball_skill_item.json"
 
 [connection signal="area_entered" from="." to="." method="_on_Item_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Item_area_exited"]
