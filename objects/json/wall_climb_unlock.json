@@ -1,0 +1,5 @@
+[{
+    "name": "Wall Climb",
+    "icon": "res://objects/json/wall_climb_showcase.png",
+    "description": "Allows to stick and grip to walls and ascend them"
+}]

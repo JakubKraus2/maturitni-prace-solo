@@ -1,0 +1,354 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/ENEMIES/Spitter Sprite Sheet 57 x 39.png" type="Texture" id=1]
+[ext_resource path="res://entities/enemies/SpitterEnemy.gd" type="Script" id=2]
+[ext_resource path="res://entities/enemies/HitDetector.gd" type="Script" id=3]
+[ext_resource path="res://entities/bosses/AnimationTree.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 9.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 2, 11 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 39.25, 21.75 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 9.5, 9 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "ATTACK"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20, 21, 22, 23, 24, 25 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitDetector/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_projectiles"
+}, {
+"args": [  ],
+"method": "moving_after_attacking"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationTree:parameters/conditions/attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:speed")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "DEATH"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 37, 38, 39, 40, 41, 42, 43 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "HURT"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 29 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree:parameters/conditions/hurt")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "IDLE"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "WALK"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 12, 13, 14, 15 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree:parameters/conditions/walk")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "moving_after_attacking"
+} ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "ATTACK"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "DEATH"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "WALK"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+advance_condition = "attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+advance_condition = "walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+advance_condition = "death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+advance_condition = "death"
+
+[sub_resource type="AnimationNodeStateMachine" id=21]
+states/ATTACK/node = SubResource( 10 )
+states/ATTACK/position = Vector2( 564, 31 )
+states/DEATH/node = SubResource( 11 )
+states/DEATH/position = Vector2( 888, 146 )
+states/WALK/node = SubResource( 13 )
+states/WALK/position = Vector2( 300, 146 )
+transitions = [ "WALK", "ATTACK", SubResource( 14 ), "ATTACK", "WALK", SubResource( 15 ), "WALK", "DEATH", SubResource( 18 ), "ATTACK", "DEATH", SubResource( 19 ) ]
+start_node = "WALK"
+graph_offset = Vector2( 100, -37 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 136, 61.5 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 272, 88 )
+
+[node name="SpitterEnemy" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 32
+script = ExtResource( 2 )
+speed = 80
+standard_speed = 80
+aggro_speed = 120
+max_knockback_power = 120
+hp = 100
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -9, 3 )
+texture = ExtResource( 1 )
+hframes = 9
+vframes = 5
+frame = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -1, 10 )
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 9, -7 )
+enabled = true
+cast_to = Vector2( 0, 36 )
+collision_mask = 32
+
+[node name="CollisonDetector" type="Area2D" parent="."]
+visible = false
+position = Vector2( -6, 3 )
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisonDetector"]
+self_modulate = Color( 0, 0.156863, 1, 1 )
+position = Vector2( 18, 5 )
+shape = SubResource( 7 )
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 41.75, -1.25 )
+shape = SubResource( 8 )
+
+[node name="HitDetector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+monitoring = false
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitDetector"]
+self_modulate = Color( 0.0784314, 1, 0, 1 )
+position = Vector2( 6, -3 )
+shape = SubResource( 9 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ATTACK = SubResource( 4 )
+anims/DEATH = SubResource( 6 )
+anims/HURT = SubResource( 5 )
+anims/IDLE = SubResource( 2 )
+anims/WALK = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 21 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 22 )
+parameters/conditions/attack = false
+parameters/conditions/death = false
+parameters/conditions/walk = false
+script = ExtResource( 4 )
+
+[node name="KnockBackTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="FieldOfVision" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FieldOfVision"]
+modulate = Color( 0, 0.133333, 1, 1 )
+position = Vector2( 136, -40.5 )
+shape = SubResource( 23 )
+
+[node name="AggroRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRange"]
+position = Vector2( 0, -67 )
+shape = SubResource( 24 )
+
+[connection signal="body_entered" from="CollisonDetector" to="." method="_on_CollisonDetector_body_entered"]
+[connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
+[connection signal="area_entered" from="FieldOfVision" to="." method="_on_FieldOfVision_area_entered"]
+[connection signal="area_exited" from="AggroRange" to="." method="_on_AggroRange_area_exited"]

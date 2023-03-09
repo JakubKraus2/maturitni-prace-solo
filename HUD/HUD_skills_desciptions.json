@@ -1,0 +1,18 @@
+[{
+        "name": "Stone Golem Hammer",
+        "icon": "res://assets/HUD/skills/skill_stone_golem_showcase.png",
+        "description": "Hammer of ancient golem made out of stones\n\nSmash down dealing massive damage and creating 3 explosions"
+    },
+
+    {
+        "name": "Large Spirit Burst",
+        "icon": "res://assets/HUD/skills/skill_fireball_showcase.png",
+        "description": "It is said that only those, who are deemed worthy are able to cast this spell\n\nFire large projectile that moves forward and damages everything in its path"
+    },
+
+    {
+        "name": "Name Test",
+        "icon": "res://items/json/player_upgrades/healing_upgrade_icon.png",
+        "description": "mjuizojnizou uzjoizujiuzj jzujuzojzu jzujz"
+    }
+]

@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/stone_explosion_anim-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://entities/bosses/projectiles/GolemBossMeleeProjectile.gd" type="Script" id=2]
+[ext_resource path="res://entities/bosses/projectiles/Hitbox.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 23.0
+height = 40.0001
+
+[sub_resource type="Animation" id=1]
+resource_name = "DEFAULT"
+length = 0.84
+loop = true
+step = 0.07
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.7, 0.77 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.84 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.84 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "add_to_finished_count"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("HitBox")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.07 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "monitoring", false ],
+"method": "set_deferred"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("HitBox/CollisionShape2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.07 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "disabled", true ],
+"method": "set_deferred"
+} ]
+}
+
+[node name="GolemBossMeleeProjectile" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -8 )
+hframes = 12
+script = ExtResource( 2 )
+
+[node name="HitBox" type="Area2D" parent="." groups=["attack"]]
+visible = false
+collision_layer = 0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+self_modulate = Color( 0, 1, 0.0156863, 1 )
+position = Vector2( -0.5, 8 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/DEFAULT = SubResource( 1 )
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]

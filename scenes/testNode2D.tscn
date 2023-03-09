@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/flyLight.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/FollowFren.gd" type="Script" id=2]
+[ext_resource path="res://Popups/fren.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -99, 558, 12.784, 14.8651, -12.784, -14.8651, -99, 502, 4.71222, -35.2728, -4.71222, 35.2728, -245, 522, -13.9438, -40.9512, 13.9438, 40.9512, -253, 714, -23.6246, 14.4113, 23.6246, -14.4113, 19, 714, -22.8459, 21.573, 22.8459, -21.573, 51, 458, -12.3471, -12.3471, 12.3471, 12.3471, 107, 458, -21.4299, -26.589, 21.4299, 26.589, 112, 672, -6.69376, -38.551, 6.69376, 38.551, 368, 672, -17.842, -22.9119, 17.842, 22.9119, 368, 840, -9.00805, 20.9864, 9.00805, -20.9864, 464, 840, -17.5464, 35.1171, 17.5464, -35.1171, 464, 672, -8.32571, -29.0752, 8.32571, 29.0752, 648, 672, -23.1974, -18.1052, 23.1974, 18.1052, 659, 818, -17.356, 33.7787, 17.356, -33.7787, 1115, 802, 15.874, 19.4457, -15.874, -19.4457, 1115, 610, 11.1118, -11.9055, -11.1118, 11.9055, 992, 608, -5.5559, -9.12755, 5.5559, 9.12755, 992, 632, -10.3181, -9.52441, 10.3181, 9.52441, 1040, 632, 27.3827, -7.1433, -27.3827, 7.1433, 1040, 776, 11.9055, -6.3496, -11.9055, 6.3496, 856, 776, 7.54015, -5.5559, -7.54015, 5.5559, 843, 802, 24.6047, 10.715, -24.6047, -10.715, 712, 800, -30.5575, 8.73071, 30.5575, -8.73071, 712, 592, -15.4772, 10.715, 15.4772, -10.715, 824, 592, 28.5732, 11.5087, -28.5732, -11.5087, 824, 360, 15.874, 12.6992, -15.874, -12.6992, 112, 360, -9.12755, 2.3811, 9.12755, -2.3811, 131, 330, -18.652, 13.4929, 18.652, -13.4929, 691, 330, -37.3039, 4.7622, 37.3039, -4.7622, 696, 104, -5.95275, -17.4614, 5.95275, 17.4614, 880, 104, 7.1433, -8.33385, -7.1433, 8.33385, 880, 136, 11.9055, -7.1433, -11.9055, 7.1433, 776, 136, -12.3024, -6.3496, 12.3024, 6.3496, 776, 168, -11.1118, 20.6362, 11.1118, -20.6362, 912, 168, 23.811, 16.2709, -23.811, -16.2709, 912, 8, 25.0016, -17.0646, -25.0016, 17.0646, 536, 8, 0, 0, 0, 0, 531, 34 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="followFren" type="Node2D"]
+position = Vector2( 296, -432 )
+script = ExtResource( 2 )
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2( -11, -2 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2( -99, 558 )
+rotation = -1.29745
+
+[node name="flyFren" parent="Path2D2/PathFollow2D" instance=ExtResource( 1 )]
+position = Vector2( -4.00001, -2 )
+
+[node name="player" type="Area2D" parent="Path2D2/PathFollow2D/flyFren"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D2/PathFollow2D/flyFren/player"]
+shape = SubResource( 2 )
+
+[node name="popup" type="Area2D" parent="Path2D2/PathFollow2D/flyFren"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D2/PathFollow2D/flyFren/popup"]
+shape = SubResource( 3 )
+
+[node name="fren" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="body_entered" from="Path2D2/PathFollow2D/flyFren/player" to="." method="_on_player_body_entered"]
+[connection signal="body_exited" from="Path2D2/PathFollow2D/flyFren/player" to="." method="_on_player_body_exited"]
+[connection signal="body_entered" from="Path2D2/PathFollow2D/flyFren/popup" to="." method="_on_popup_body_entered"]

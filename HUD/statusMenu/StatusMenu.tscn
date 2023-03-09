@@ -1,0 +1,477 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/HUD/skills/special-attacks-menu.png" type="Texture" id=1]
+[ext_resource path="res://fonts/joystix monospace.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/HUD/skills/skill_icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/HUD/skills/HUD_skill_menu_split_line.png" type="Texture" id=4]
+[ext_resource path="res://HUD/statusMenu/StatusMenu.gd" type="Script" id=5]
+[ext_resource path="res://HUD/SkillsHUD/OkButton.gd" type="Script" id=6]
+[ext_resource path="res://assets/UI - Words/Words without BG/UI - Words1.png" type="Texture" id=7]
+[ext_resource path="res://assets/HUD/artefacts/artefact_icon.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 11
+font_data = ExtResource( 2 )
+
+[node name="StatusMenu" type="CanvasLayer"]
+visible = false
+script = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -60.0
+margin_top = -42.0
+margin_right = 702.0
+margin_bottom = 406.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 11.0
+margin_top = 20.0
+margin_right = 641.0
+margin_bottom = 340.0
+custom_constants/separation = 24
+
+[node name="StatsUpgradesContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 167.0
+margin_bottom = 334.0
+custom_constants/separation = 71
+
+[node name="StatsContainer" type="VBoxContainer" parent="HBoxContainer/StatsUpgradesContainer2"]
+margin_right = 167.0
+margin_bottom = 108.0
+custom_constants/separation = 24
+
+[node name="Upgrades" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer"]
+margin_right = 167.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+text = "Stats"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer"]
+margin_top = 42.0
+margin_right = 167.0
+margin_bottom = 108.0
+custom_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer/HBoxContainer"]
+margin_right = 72.0
+margin_bottom = 66.0
+custom_constants/separation = 12
+
+[node name="Lives" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer/HBoxContainer/VBoxContainer"]
+margin_right = 72.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = " Lives"
+
+[node name="Mana" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer/HBoxContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 72.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = " mana"
+
+[node name="Healing" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer/HBoxContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 72.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 2 )
+text = " Healing"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 167.0
+margin_bottom = 66.0
+custom_constants/separation = 12
+
+[node name="CurrentLives" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 63.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = "5/5"
+
+[node name="CurrentMana" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 26.0
+margin_right = 63.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "100/100"
+
+[node name="CurrentHealing" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/StatsContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 52.0
+margin_right = 63.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 2 )
+text = "3/3"
+
+[node name="UpgradesContainer" type="VBoxContainer" parent="HBoxContainer/StatsUpgradesContainer2"]
+margin_top = 179.0
+margin_right = 167.0
+margin_bottom = 313.0
+custom_constants/separation = 24
+
+[node name="Upgrades" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer"]
+margin_right = 167.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+text = "Upgrades"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer"]
+margin_top = 42.0
+margin_right = 167.0
+margin_bottom = 134.0
+custom_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer"]
+margin_right = 72.0
+margin_bottom = 92.0
+custom_constants/separation = 12
+
+[node name="Lives" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer/VBoxContainer"]
+margin_right = 72.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = " Lives"
+
+[node name="Mana" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 72.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = " mana"
+
+[node name="Healing" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 72.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 2 )
+text = " Healing"
+
+[node name="Damage" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer/VBoxContainer"]
+margin_top = 78.0
+margin_right = 72.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = " damage"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 122.0
+margin_bottom = 92.0
+custom_constants/separation = 12
+
+[node name="LivesUpgrade" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 18.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+text = "+0"
+
+[node name="ManaUpgrade" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 26.0
+margin_right = 18.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "+0"
+
+[node name="HealingUpgrade" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 52.0
+margin_right = 18.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 2 )
+text = "+0"
+
+[node name="DamageUpgrade" type="Label" parent="HBoxContainer/StatsUpgradesContainer2/UpgradesContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 78.0
+margin_right = 18.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 2 )
+text = "*1"
+
+[node name="SkillsArtefactsContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 191.0
+margin_right = 431.0
+margin_bottom = 334.0
+custom_constants/separation = 64
+
+[node name="SkillsContainer" type="VBoxContainer" parent="HBoxContainer/SkillsArtefactsContainer"]
+margin_right = 240.0
+margin_bottom = 106.0
+custom_constants/separation = 24
+
+[node name="EquippedSkills" type="Label" parent="HBoxContainer/SkillsArtefactsContainer/SkillsContainer"]
+margin_right = 240.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+text = "Equipped skills"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/SkillsArtefactsContainer/SkillsContainer"]
+margin_top = 42.0
+margin_right = 240.0
+margin_bottom = 106.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="Skill1" type="TextureRect" parent="HBoxContainer/SkillsArtefactsContainer/SkillsContainer/HBoxContainer"]
+margin_left = 8.0
+margin_right = 72.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Skill2" type="TextureRect" parent="HBoxContainer/SkillsArtefactsContainer/SkillsContainer/HBoxContainer"]
+margin_left = 88.0
+margin_right = 152.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Skill3" type="TextureRect" parent="HBoxContainer/SkillsArtefactsContainer/SkillsContainer/HBoxContainer"]
+margin_left = 168.0
+margin_right = 232.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="ArtefactsContainer" type="VBoxContainer" parent="HBoxContainer/SkillsArtefactsContainer"]
+margin_top = 170.0
+margin_right = 240.0
+margin_bottom = 260.0
+custom_constants/separation = 24
+
+[node name="EquippedArtefacts" type="Label" parent="HBoxContainer/SkillsArtefactsContainer/ArtefactsContainer"]
+margin_right = 240.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+text = "Equipped Artefacts"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/SkillsArtefactsContainer/ArtefactsContainer"]
+margin_top = 42.0
+margin_right = 240.0
+margin_bottom = 90.0
+custom_constants/separation = 16
+
+[node name="Artefact1" type="TextureRect" parent="HBoxContainer/SkillsArtefactsContainer/ArtefactsContainer/HBoxContainer"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Artefact2" type="TextureRect" parent="HBoxContainer/SkillsArtefactsContainer/ArtefactsContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 112.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Artefact3" type="TextureRect" parent="HBoxContainer/SkillsArtefactsContainer/ArtefactsContainer/HBoxContainer"]
+margin_left = 128.0
+margin_right = 176.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Artefact4" type="TextureRect" parent="HBoxContainer/SkillsArtefactsContainer/ArtefactsContainer/HBoxContainer"]
+margin_left = 192.0
+margin_right = 240.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="AttackPowerContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 455.0
+margin_right = 611.0
+margin_bottom = 334.0
+
+[node name="AttackPowerContainer2" type="VBoxContainer" parent="HBoxContainer/AttackPowerContainer"]
+margin_right = 156.0
+margin_bottom = 334.0
+custom_constants/separation = 32
+
+[node name="AttackContainer" type="VBoxContainer" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2"]
+margin_right = 156.0
+margin_bottom = 151.0
+custom_constants/separation = 16
+
+[node name="AttackPower" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer"]
+margin_right = 156.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+text = "Attack Damage"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer"]
+margin_top = 34.0
+margin_right = 156.0
+margin_bottom = 151.0
+custom_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer/HBoxContainer"]
+margin_right = 90.0
+margin_bottom = 117.0
+custom_constants/separation = 12
+
+[node name="Attack1" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer/HBoxContainer/VBoxContainer"]
+margin_right = 90.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
+text = " Attack1
+ mana gain"
+
+[node name="Attack2" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer/HBoxContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 90.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 2 )
+text = " Attack2
+ mana gain"
+
+[node name="Attack3" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer/HBoxContainer/VBoxContainer"]
+margin_top = 86.0
+margin_right = 90.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 2 )
+text = " Attack3
+ mana gain"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer/HBoxContainer"]
+margin_left = 122.0
+margin_right = 140.0
+margin_bottom = 117.0
+custom_constants/separation = 12
+
+[node name="AttackPower1" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 18.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
+text = "20
+0"
+
+[node name="AttackPower2" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 43.0
+margin_right = 18.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 2 )
+text = "20
+0"
+
+[node name="AttackPower3" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/AttackContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 86.0
+margin_right = 18.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 2 )
+text = "30
+0"
+
+[node name="StatsContainer" type="VBoxContainer" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2"]
+margin_top = 183.0
+margin_right = 156.0
+margin_bottom = 334.0
+custom_constants/separation = 16
+
+[node name="SkillsAttackPower" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer"]
+margin_right = 156.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+text = "Skills Damage"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer"]
+margin_top = 34.0
+margin_right = 156.0
+margin_bottom = 151.0
+custom_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer/HBoxContainer"]
+margin_right = 90.0
+margin_bottom = 117.0
+custom_constants/separation = 12
+
+[node name="Skill1" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer/HBoxContainer/VBoxContainer"]
+margin_right = 90.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
+text = " Skill1
+ Mana cost"
+
+[node name="Skill2" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer/HBoxContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 90.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 2 )
+text = " Skill2
+ Mana cost"
+
+[node name="Skill3" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer/HBoxContainer/VBoxContainer"]
+margin_top = 86.0
+margin_right = 90.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 2 )
+text = " Skill3
+ Mana cost"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer/HBoxContainer"]
+margin_left = 122.0
+margin_right = 140.0
+margin_bottom = 117.0
+custom_constants/separation = 12
+
+[node name="AttackPowerSkill1" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 18.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
+text = "90
+0"
+
+[node name="AttackPowerSkill2" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 43.0
+margin_right = 18.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 2 )
+text = "0
+0"
+
+[node name="AttackPowerSkill3" type="Label" parent="HBoxContainer/AttackPowerContainer/AttackPowerContainer2/StatsContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 86.0
+margin_right = 18.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 2 )
+text = "0
+0"
+
+[node name="SeparationLine" type="Sprite" parent="."]
+position = Vector2( 195, 180 )
+rotation = 1.5708
+scale = Vector2( 1.39952, 0.175576 )
+texture = ExtResource( 4 )
+
+[node name="SeparationLine2" type="Sprite" parent="."]
+position = Vector2( 457, 180 )
+rotation = 1.5708
+scale = Vector2( 1.39882, 0.175576 )
+texture = ExtResource( 4 )
+
+[node name="OkButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -73.0
+margin_top = -30.0
+margin_right = 73.0
+margin_bottom = -3.0
+texture_normal = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+
+[connection signal="pressed" from="OkButton" to="OkButton" method="_on_OkButton_pressed"]

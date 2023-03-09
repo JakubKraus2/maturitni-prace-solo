@@ -1,0 +1,5 @@
+[{
+    "name": "Double Jump",
+    "icon": "res://objects/json/double_jump_showcase.png",
+    "description": "Press jump button while in mid-air to execute a second jump"
+}]

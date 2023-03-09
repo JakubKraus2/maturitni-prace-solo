@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Light/White-Glow-PNG-Image_k6shhf.png" type="Texture" id=1]
+[ext_resource path="res://assets/ANIMALS/fren03D.png" type="Texture" id=2]
+[ext_resource path="res://flyLight.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 5 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "IDLE"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="flyFren" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 32768
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2, -3 )
+texture = ExtResource( 2 )
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/IDLE = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -1, -1 )
+scale = Vector2( 0.997342, 0.968026 )
+texture = ExtResource( 1 )
+offset = Vector2( 5, 15 )
+texture_scale = 0.3
+color = Color( 0.780392, 0.815686, 0.831373, 1 )
+energy = 3.0
+range_item_cull_mask = 1022
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 4.2
