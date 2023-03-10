@@ -1,7 +1,7 @@
 extends Area2D
 
 
-onready var SAVE_PATH = "user://" + name + "_save_file.save"
+onready var SAVE_PATH = "user://" + str(get_instance_id()) + name + "_save_file.save"
 onready var game_data = SaveFile.game_data
 var picked_status = {}
 
