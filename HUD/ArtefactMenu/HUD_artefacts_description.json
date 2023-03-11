@@ -1,30 +1,42 @@
 [{
-    "name": "Executioner Sword",
-    "icon": "res://assets/HUD/artefacts/artefact_icon_executioner_sword_showcase.png",
-    "description": "Sword designed specifically for decapitation in gruesome rituals\n\nBoosts damage by 30% when near death"
-},
+        "name": "Executioner Sword",
+        "icon": "res://assets/HUD/artefacts/artefact_icon_executioner_sword_showcase.png",
+        "description": "Sword designed specifically for decapitation in gruesome rituals\n\nBoosts damage by 30% when near death"
+    },
 
-{
-    "name": "Health Amulet",
-    "icon": "res://assets/HUD/artefacts/artefact_icon_health_amulet_showcase.png",
-    "description": "Golden amulet with red jewel imbued in magic\n\nGrants 1 additional live"
-},
+    {
+        "name": "Health Amulet",
+        "icon": "res://assets/HUD/artefacts/artefact_icon_health_amulet_showcase.png",
+        "description": "Golden amulet with red jewel imbued in magic\n\nGrants 1 additional live"
+    },
 
-{
-    "name": "Mana Ring",
-    "icon": "res://assets/HUD/artefacts/artefact_icon_mana_ring_showcase.png",
-    "description": "Golden Ring with blue jewel imbued in magic\n\nGrants 10% more mana"
-},
+    {
+        "name": "Mana Ring",
+        "icon": "res://assets/HUD/artefacts/artefact_icon_mana_ring_showcase.png",
+        "description": "Golden Ring with blue jewel imbued in magic\n\nGrants 10% more mana"
+    },
 
-{
-    "name": "Idol of Haste",
-    "icon": "res://assets/HUD/artefacts/artefact_icon_speed_totem_showcase.png",
-    "description": "Small totem of long forgotten god of haste carved from magic wood\n\nBoosts movement speed by 25%"
-},
+    {
+        "name": "Idol of Haste",
+        "icon": "res://assets/HUD/artefacts/artefact_icon_speed_totem_showcase.png",
+        "description": "Small totem of long forgotten god of haste carved from magic wood\n\nBoosts movement speed by 25%"
+    },
 
-{
-    "name": "Coward's Sword",
-    "icon": "res://assets/HUD/artefacts/artefact_icon_coward_sword_showcase.png",
-    "description": "Said to be worn by the most cowardly fighters across the land\n\nBoosts damage by 10% while on full lives"
-}
+    {
+        "name": "Coward's Sword",
+        "icon": "res://assets/HUD/artefacts/artefact_icon_coward_sword_showcase.png",
+        "description": "Said to be worn by the most cowardly fighters across the land\n\nBoosts damage by 10% while on full lives"
+    },
+
+    {
+        "name": "Coward's Shield",
+        "icon": "res://assets/HUD/artefacts/artefact_icon_coward_shield_showcase.png",
+        "description": "Said to be worn by the most cowardly fighters across the land\n\nCreates barrier that negates all damage while healing"
+    },
+
+    {
+        "name": "Thorned Rose",
+        "icon": "res://assets/HUD/artefacts/artefact_icon_thorned_rose_showcase.png",
+        "description": "The Thorned Rose is a beautiful rose-shaped ornament, with its petals made of a rare, enchanted material that imbues it with magical properties\n\nWhen damage is taken shoots out thorns inflicting damage upon enemies"
+    }
 ]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://HUD/boss/BossHealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/bosses/other/BossCutsceneCamera.tscn" type="PackedScene" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://objects/DoubleJumpUnlocker.tscn" type="PackedScene" id=21]
 [ext_resource path="res://objects/WallClimbUnlocker.tscn" type="PackedScene" id=22]
 [ext_resource path="res://items/bosses/ItemFireballSkill.tscn" type="PackedScene" id=23]
+[ext_resource path="res://items/artefacts/ItemArtefactCowardShield.tscn" type="PackedScene" id=24]
+[ext_resource path="res://items/artefacts/ItemArtefactThornedRose.tscn" type="PackedScene" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1383.5, 7.5 )
@@ -142,3 +144,9 @@ position = Vector2( 75, 293 )
 
 [node name="ItemFireballSkill" parent="." instance=ExtResource( 23 )]
 position = Vector2( -43, 238 )
+
+[node name="ItemArtefactThornedRose" parent="." instance=ExtResource( 25 )]
+position = Vector2( 628, 295 )
+
+[node name="ItemArtefactCowardShield" parent="." instance=ExtResource( 24 )]
+position = Vector2( 707, 297 )

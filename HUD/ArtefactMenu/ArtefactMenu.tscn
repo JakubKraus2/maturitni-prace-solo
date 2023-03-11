@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://fonts/joystix monospace.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD/ArtefactMenu/artefacts_grop2.tres" type="ButtonGroup" id=2]
@@ -45,6 +45,10 @@
 [ext_resource path="res://HUD/ArtefactMenu/Panel9.gd" type="Script" id=43]
 [ext_resource path="res://HUD/ArtefactMenu/Panel12.gd" type="Script" id=44]
 [ext_resource path="res://HUD/ArtefactMenu/Panel15.gd" type="Script" id=45]
+[ext_resource path="res://assets/HUD/artefacts/artefact_icon_healing_shield_pressed.png" type="Texture" id=46]
+[ext_resource path="res://assets/HUD/artefacts/artefact_icon_thorns.png" type="Texture" id=47]
+[ext_resource path="res://assets/HUD/artefacts/artefact_icon_thorns_pressed.png" type="Texture" id=48]
+[ext_resource path="res://assets/HUD/artefacts/artefact_icon_healing_shield.png" type="Texture" id=49]
 
 [sub_resource type="DynamicFont" id=3]
 size = 20
@@ -211,8 +215,8 @@ rect_min_size = Vector2( 96, 96 )
 disabled = true
 toggle_mode = true
 group = ExtResource( 4 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 19 )
+texture_normal = ExtResource( 49 )
+texture_pressed = ExtResource( 46 )
 texture_disabled = ExtResource( 21 )
 expand = true
 script = ExtResource( 38 )
@@ -226,8 +230,8 @@ rect_min_size = Vector2( 96, 96 )
 disabled = true
 toggle_mode = true
 group = ExtResource( 4 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 19 )
+texture_normal = ExtResource( 47 )
+texture_pressed = ExtResource( 48 )
 texture_disabled = ExtResource( 21 )
 expand = true
 script = ExtResource( 37 )
@@ -439,8 +443,8 @@ rect_min_size = Vector2( 96, 96 )
 disabled = true
 toggle_mode = true
 group = ExtResource( 2 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 19 )
+texture_normal = ExtResource( 49 )
+texture_pressed = ExtResource( 46 )
 texture_disabled = ExtResource( 21 )
 expand = true
 script = ExtResource( 38 )
@@ -454,8 +458,8 @@ rect_min_size = Vector2( 96, 96 )
 disabled = true
 toggle_mode = true
 group = ExtResource( 2 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 19 )
+texture_normal = ExtResource( 47 )
+texture_pressed = ExtResource( 48 )
 texture_disabled = ExtResource( 21 )
 expand = true
 script = ExtResource( 37 )
@@ -667,8 +671,8 @@ rect_min_size = Vector2( 96, 96 )
 disabled = true
 toggle_mode = true
 group = ExtResource( 3 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 19 )
+texture_normal = ExtResource( 49 )
+texture_pressed = ExtResource( 46 )
 texture_disabled = ExtResource( 21 )
 expand = true
 script = ExtResource( 38 )
@@ -682,8 +686,8 @@ rect_min_size = Vector2( 96, 96 )
 disabled = true
 toggle_mode = true
 group = ExtResource( 3 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 19 )
+texture_normal = ExtResource( 47 )
+texture_pressed = ExtResource( 48 )
 texture_disabled = ExtResource( 21 )
 expand = true
 script = ExtResource( 37 )
@@ -895,8 +899,8 @@ rect_min_size = Vector2( 96, 96 )
 disabled = true
 toggle_mode = true
 group = ExtResource( 12 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 19 )
+texture_normal = ExtResource( 49 )
+texture_pressed = ExtResource( 46 )
 texture_disabled = ExtResource( 21 )
 expand = true
 script = ExtResource( 38 )
@@ -910,8 +914,8 @@ rect_min_size = Vector2( 96, 96 )
 disabled = true
 toggle_mode = true
 group = ExtResource( 12 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 19 )
+texture_normal = ExtResource( 47 )
+texture_pressed = ExtResource( 48 )
 texture_disabled = ExtResource( 21 )
 expand = true
 script = ExtResource( 37 )

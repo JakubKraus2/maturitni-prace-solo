@@ -247,6 +247,3 @@ func spawn_fireball_skill():
 	var fireball_instance = fireball.instance()
 	fireball_instance.global_position = global_position
 	get_parent().add_child(fireball_instance)
-	
-func swordsMaster():
-	pass
