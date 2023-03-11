@@ -19,8 +19,9 @@ var roll_attack_damage_mana_gain = roll_attack_damage/10
 
 var stone_golem_skill_hammer = 60
 var stone_golem_skill_hammer_eplosion = 30
-
 var fireball_skill = 40
+
+var thorned_rose_projectile = 5
 
 func _ready() -> void:
 	slash_damage = 20 * damage_upgrade * executioner_sword_boost * coward_sword_boost
@@ -38,3 +39,4 @@ func _ready() -> void:
 	stone_golem_skill_hammer = 60 * damage_upgrade * executioner_sword_boost * coward_sword_boost
 	stone_golem_skill_hammer_eplosion = 30 * damage_upgrade * executioner_sword_boost * coward_sword_boost
 	fireball_skill = 40 * damage_upgrade * executioner_sword_boost * coward_sword_boost
+	thorned_rose_projectile = 5 * damage_upgrade * executioner_sword_boost * coward_sword_boost

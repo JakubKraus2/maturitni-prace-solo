@@ -1090,6 +1090,9 @@ position = Vector2( 284.286, 170 )
 scale = Vector2( 2.02009, 0.178574 )
 texture = ExtResource( 20 )
 
+[node name="ThornedRoseCooldown" type="Timer" parent="."]
+autostart = true
+
 [connection signal="pressed" from="CurrentArtefacts/Panel1" to="CurrentArtefacts/Panel1" method="_on_Panel1_pressed"]
 [connection signal="toggled" from="CurrentArtefacts/Panel1" to="." method="_on_Panel1_toggled"]
 [connection signal="pressed" from="CurrentArtefacts/Panel2" to="CurrentArtefacts/Panel2" method="_on_Panel2_pressed"]
@@ -1099,3 +1102,4 @@ texture = ExtResource( 20 )
 [connection signal="pressed" from="CurrentArtefacts/Panel4" to="CurrentArtefacts/Panel4" method="_on_Panel4_pressed"]
 [connection signal="toggled" from="CurrentArtefacts/Panel4" to="." method="_on_Panel4_toggled"]
 [connection signal="pressed" from="OkButton" to="OkButton" method="_on_OkButton_pressed"]
+[connection signal="timeout" from="ThornedRoseCooldown" to="Artefacts1/Panel7" method="_on_ThornedRoseCooldown_timeout"]
