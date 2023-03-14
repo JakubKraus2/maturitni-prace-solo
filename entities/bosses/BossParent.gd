@@ -21,8 +21,6 @@ onready var hurt_timer = $HurtTimer #after getting hit the boss texture goes red
 onready var animation_player = $AnimationPlayer
 onready var health_bar = get_node("BossHealthBar").get_child(0)
 
-
-
 var direction
 
 export var attack_knock_back_power = 1000

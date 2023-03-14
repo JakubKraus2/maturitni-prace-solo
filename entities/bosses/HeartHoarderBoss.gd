@@ -104,7 +104,7 @@ func choose_state():
 
 
 func check_stagger():
-	if hp <= max_hp/2 && hp > 0 && stagger1:
+	if hp <= max_hp-1 && hp > 0 && stagger1:
 		current_state = STAGGER
 		stagger1 = false
 
@@ -136,6 +136,9 @@ func boomerang_attack_teleport():
 
 func stagger_teleport():
 	global_position = Vector2(300, 240)
+
+func second_phase_transition():
+	global_position = Vector2(300, 100)
 
 
 func spawn_swords():

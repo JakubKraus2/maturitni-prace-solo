@@ -78,7 +78,6 @@ position = Vector2( -44.6667, 28.6667 )
 [node name="BossHealthBar" parent="HeartHoarderBoss" instance=ExtResource( 7 )]
 
 [node name="HeartHoarderBoss2" parent="." instance=ExtResource( 10 )]
-modulate = Color( 1, 1, 1, 1 )
-position = Vector2( 132, 233 )
+position = Vector2( 384, 669 )
 
 [node name="BossHealthBar" parent="HeartHoarderBoss2" instance=ExtResource( 7 )]

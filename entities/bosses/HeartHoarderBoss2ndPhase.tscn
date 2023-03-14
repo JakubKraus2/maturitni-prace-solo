@@ -475,7 +475,6 @@ graph_offset = Vector2( -75.6646, 107.128 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
 [node name="HeartHoarderBoss" type="KinematicBody2D"]
-modulate = Color( 1, 1, 1, 0.0118844 )
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 2
 collision_mask = 32

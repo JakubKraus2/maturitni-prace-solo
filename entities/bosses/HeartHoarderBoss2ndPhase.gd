@@ -23,6 +23,9 @@ var boomerang_attack_projectile = load("res://entities/bosses/projectiles/HeartH
 export var current_state = IDLE
 
 
+func start():
+	set_process(true)
+	$AnimationTree.active = true
 
 func _init(): #change parameters from parent
 	hp = 1200
@@ -35,6 +38,8 @@ func _ready() -> void:
 	if game_data.dead == true:
 		queue_free()
 	disable_all_conditions()
+	$AnimationTree.active = false
+	set_process(false)
 
 func _process(delta):
 	match current_state:
@@ -83,10 +88,10 @@ func teleport():
 
 
 func spawn_pillars_attack_teleport():
-	global_position = Vector2(320, 160)
+	global_position = Vector2(320+64, 160)
 
 func boomerang_attack_teleport():
-	global_position = Vector2(320, 100)
+	global_position = Vector2(320+64, 100)
 
 
 func spawn_swords():

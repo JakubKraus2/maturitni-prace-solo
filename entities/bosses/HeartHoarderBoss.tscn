@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://assets/ENEMIES/The Heart Hoarder Sprite sheet 222x119.png" type="Texture" id=1]
 [ext_resource path="res://entities/bosses/HeartHoarderBoss.gd" type="Script" id=2]
@@ -18,6 +18,183 @@ extents = Vector2( 50.6667, 6.33333 )
 
 [sub_resource type="RectangleShape2D" id=61]
 extents = Vector2( 20, 5.66667 )
+
+[sub_resource type="Animation" id=77]
+resource_name = "2ND_PHASE_TRANSITION"
+length = 3.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 288, 289, 290, 291, 292, 293, 294, 324, 325, 326, 327, 328, 329, 330, 331, 332, 0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpriteFallAttack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 33 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "set_camera_shake"
+}, {
+"args": [  ],
+"method": "second_phase_transition"
+} ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RunningAttackHitbox/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("FallAttackHitbox/MainHitbox:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("FallAttackHitbox/Sword1Hitbox:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("FallAttackHitbox/Sword2Hitbox:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("FallAttackHitbox/Sword3Hitbox:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("FallAttackHitbox/Sword4Hitbox:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("AnimationTree:parameters/conditions/2nd_phase_transition")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 3.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=62]
 resource_name = "BOOMERANG_ATTACK"
@@ -962,6 +1139,93 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector2( 0, 33 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath(".:speed")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("RunningAttackHitbox/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("FallAttackHitbox/MainHitbox:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("FallAttackHitbox/Sword1Hitbox:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("FallAttackHitbox/Sword2Hitbox:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("FallAttackHitbox/Sword3Hitbox:disabled")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("FallAttackHitbox/Sword4Hitbox:disabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=78]
+animation = "2ND_PHASE_TRANSITION"
 
 [sub_resource type="AnimationNodeAnimation" id=63]
 animation = "BOOMERANG_ATTACK"
@@ -1089,11 +1353,6 @@ advance_condition = "stagger"
 [sub_resource type="AnimationNodeStateMachineTransition" id=56]
 advance_condition = "stagger"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=59]
-switch_mode = 2
-auto_advance = true
-advance_condition = "port_out"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=64]
 advance_condition = "death"
 
@@ -1136,7 +1395,22 @@ advance_condition = "idle_start"
 [sub_resource type="AnimationNodeStateMachineTransition" id=76]
 advance_condition = "death"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+switch_mode = 2
+auto_advance = true
+advance_condition = "2nd_phase_transition"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=80]
+switch_mode = 2
+auto_advance = true
+advance_condition = "port_out"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=81]
+advance_condition = "death"
+
 [sub_resource type="AnimationNodeStateMachine" id=11]
+states/2ND_PHASE_TRANSITION/node = SubResource( 78 )
+states/2ND_PHASE_TRANSITION/position = Vector2( 1076.84, 338 )
 states/BOOMERANG_ATTACK/node = SubResource( 63 )
 states/BOOMERANG_ATTACK/position = Vector2( 932.695, 226 )
 states/DEATH/node = SubResource( 13 )
@@ -1158,10 +1432,10 @@ states/SPAWN_PILLARS_ATTACK/position = Vector2( 795, 452.409 )
 states/SPAWN_SWORD_ATTACK/node = SubResource( 39 )
 states/SPAWN_SWORD_ATTACK/position = Vector2( 525, 452.409 )
 states/STAGGER/node = SubResource( 50 )
-states/STAGGER/position = Vector2( 1034, 338 )
-transitions = [ "IDLE", "DEATH", SubResource( 14 ), "PORT_OUT", "PORT_IN", SubResource( 17 ), "IDLE", "PORT_OUT", SubResource( 18 ), "PORT_IN", "DEATH", SubResource( 23 ), "PORT_OUT", "DEATH", SubResource( 24 ), "PORT_IN", "RUNNING_ATTACK", SubResource( 26 ), "RUNNING_ATTACK", "DEATH", SubResource( 30 ), "FALL_ATTACK", "DEATH", SubResource( 31 ), "PORT_IN", "FALL_ATTACK", SubResource( 32 ), "IDLE_START", "IDLE", SubResource( 34 ), "PORT_IN", "PORT_OUT", SubResource( 35 ), "FALL_ATTACK", "PORT_OUT", SubResource( 36 ), "RUNNING_ATTACK", "PORT_OUT", SubResource( 37 ), "SPAWN_SWORD_ATTACK", "DEATH", SubResource( 40 ), "SPAWN_SWORD_ATTACK", "PORT_OUT", SubResource( 41 ), "PORT_IN", "SPAWN_SWORD_ATTACK", SubResource( 42 ), "SPAWN_PILLARS_ATTACK", "DEATH", SubResource( 45 ), "PORT_IN", "SPAWN_PILLARS_ATTACK", SubResource( 46 ), "SPAWN_PILLARS_ATTACK", "PORT_OUT", SubResource( 47 ), "STAGGER", "DEATH", SubResource( 51 ), "SPAWN_PILLARS_ATTACK", "STAGGER", SubResource( 52 ), "FALL_ATTACK", "STAGGER", SubResource( 53 ), "SPAWN_SWORD_ATTACK", "STAGGER", SubResource( 54 ), "RUNNING_ATTACK", "STAGGER", SubResource( 55 ), "PORT_IN", "STAGGER", SubResource( 56 ), "STAGGER", "PORT_OUT", SubResource( 59 ), "BOOMERANG_ATTACK", "DEATH", SubResource( 64 ), "BOOMERANG_ATTACK", "STAGGER", SubResource( 65 ), "PORT_IN", "BOOMERANG_ATTACK", SubResource( 66 ), "BOOMERANG_ATTACK", "PORT_OUT", SubResource( 67 ), "RUNNING_ATTACK", "IDLE_START", SubResource( 68 ), "FALL_ATTACK", "IDLE_START", SubResource( 69 ), "BOOMERANG_ATTACK", "IDLE_START", SubResource( 70 ), "STAGGER", "IDLE_START", SubResource( 71 ), "SPAWN_PILLARS_ATTACK", "IDLE_START", SubResource( 72 ), "SPAWN_SWORD_ATTACK", "IDLE_START", SubResource( 73 ), "PORT_IN", "IDLE_START", SubResource( 74 ), "PORT_OUT", "IDLE_START", SubResource( 75 ), "IDLE_START", "DEATH", SubResource( 76 ) ]
+states/STAGGER/position = Vector2( 829, 338 )
+transitions = [ "IDLE", "DEATH", SubResource( 14 ), "PORT_OUT", "PORT_IN", SubResource( 17 ), "IDLE", "PORT_OUT", SubResource( 18 ), "PORT_IN", "DEATH", SubResource( 23 ), "PORT_OUT", "DEATH", SubResource( 24 ), "PORT_IN", "RUNNING_ATTACK", SubResource( 26 ), "RUNNING_ATTACK", "DEATH", SubResource( 30 ), "FALL_ATTACK", "DEATH", SubResource( 31 ), "PORT_IN", "FALL_ATTACK", SubResource( 32 ), "IDLE_START", "IDLE", SubResource( 34 ), "PORT_IN", "PORT_OUT", SubResource( 35 ), "FALL_ATTACK", "PORT_OUT", SubResource( 36 ), "RUNNING_ATTACK", "PORT_OUT", SubResource( 37 ), "SPAWN_SWORD_ATTACK", "DEATH", SubResource( 40 ), "SPAWN_SWORD_ATTACK", "PORT_OUT", SubResource( 41 ), "PORT_IN", "SPAWN_SWORD_ATTACK", SubResource( 42 ), "SPAWN_PILLARS_ATTACK", "DEATH", SubResource( 45 ), "PORT_IN", "SPAWN_PILLARS_ATTACK", SubResource( 46 ), "SPAWN_PILLARS_ATTACK", "PORT_OUT", SubResource( 47 ), "STAGGER", "DEATH", SubResource( 51 ), "SPAWN_PILLARS_ATTACK", "STAGGER", SubResource( 52 ), "FALL_ATTACK", "STAGGER", SubResource( 53 ), "SPAWN_SWORD_ATTACK", "STAGGER", SubResource( 54 ), "RUNNING_ATTACK", "STAGGER", SubResource( 55 ), "PORT_IN", "STAGGER", SubResource( 56 ), "BOOMERANG_ATTACK", "DEATH", SubResource( 64 ), "BOOMERANG_ATTACK", "STAGGER", SubResource( 65 ), "PORT_IN", "BOOMERANG_ATTACK", SubResource( 66 ), "BOOMERANG_ATTACK", "PORT_OUT", SubResource( 67 ), "RUNNING_ATTACK", "IDLE_START", SubResource( 68 ), "FALL_ATTACK", "IDLE_START", SubResource( 69 ), "BOOMERANG_ATTACK", "IDLE_START", SubResource( 70 ), "STAGGER", "IDLE_START", SubResource( 71 ), "SPAWN_PILLARS_ATTACK", "IDLE_START", SubResource( 72 ), "SPAWN_SWORD_ATTACK", "IDLE_START", SubResource( 73 ), "PORT_IN", "IDLE_START", SubResource( 74 ), "PORT_OUT", "IDLE_START", SubResource( 75 ), "IDLE_START", "DEATH", SubResource( 76 ), "STAGGER", "2ND_PHASE_TRANSITION", SubResource( 79 ), "2ND_PHASE_TRANSITION", "PORT_OUT", SubResource( 80 ), "2ND_PHASE_TRANSITION", "DEATH", SubResource( 81 ) ]
 start_node = "IDLE_START"
-graph_offset = Vector2( 75.695, 130.214 )
+graph_offset = Vector2( 29.9557, 130.214 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
@@ -1170,11 +1444,13 @@ scale = Vector2( 1.5, 1.5 )
 collision_layer = 2
 collision_mask = 32
 script = ExtResource( 2 )
+current_state = 2
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 36
 vframes = 16
+frame = 288
 
 [node name="SpriteFallAttack" type="Sprite" parent="."]
 visible = false
@@ -1229,6 +1505,7 @@ shape = SubResource( 61 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/2ND_PHASE_TRANSITION = SubResource( 77 )
 anims/BOOMERANG_ATTACK = SubResource( 62 )
 anims/DEATH = SubResource( 6 )
 anims/FALL_ATTACK = SubResource( 3 )
@@ -1246,6 +1523,7 @@ tree_root = SubResource( 11 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 12 )
+parameters/conditions/2nd_phase_transition = false
 parameters/conditions/boomerang_attack = false
 parameters/conditions/death = false
 parameters/conditions/fall_attack = false
