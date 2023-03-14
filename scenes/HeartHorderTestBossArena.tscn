@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/BACKGROUNDS/HbossArena/layer 2.png" type="Texture" id=1]
 [ext_resource path="res://assets/BACKGROUNDS/HbossArena/layer 4.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://HUD/boss/BossHealthBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/bosses/HeartHoarderBoss.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/bosses/other/BossCutsceneCamera.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/bosses/HeartHoarderBoss2ndPhase.tscn" type="PackedScene" id=10]
 
 [node name="HeartHorderTestBossArena" type="Node2D"]
 
@@ -75,3 +76,9 @@ position = Vector2( 577, 245 )
 position = Vector2( -44.6667, 28.6667 )
 
 [node name="BossHealthBar" parent="HeartHoarderBoss" instance=ExtResource( 7 )]
+
+[node name="HeartHoarderBoss2" parent="." instance=ExtResource( 10 )]
+modulate = Color( 1, 1, 1, 1 )
+position = Vector2( 132, 233 )
+
+[node name="BossHealthBar" parent="HeartHoarderBoss2" instance=ExtResource( 7 )]

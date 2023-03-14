@@ -1,0 +1,531 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://assets/ENEMIES/The Heart Hoarder Sprite sheet 222x119.png" type="Texture" id=1]
+[ext_resource path="res://entities/bosses/HeartHoarderBoss2ndPhase.gd" type="Script" id=2]
+[ext_resource path="res://entities/bosses/AnimationTree.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=62]
+resource_name = "BOOMERANG_ATTACK"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree:parameters/conditions/boomerang_attack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_boomerangs"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "DEATH"
+length = 3.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "disable_all"
+}, {
+"args": [  ],
+"method": "spawn_item"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stagger_teleport"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "set_camera_shake"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:speed")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "IDLE"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree:parameters/conditions/idle_start")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "set_camera_shake"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "PORT_IN"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 324, 325, 326, 327, 328, 329, 330, 331, 332 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree:parameters/conditions/port_in")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.45 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.45 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "choose_state"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "PORT_OUT"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 288, 289, 290, 291, 292, 293, 294 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationTree:parameters/conditions/port_out")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "teleport"
+} ]
+}
+
+[sub_resource type="Animation" id=77]
+resource_name = "SPAWN"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "SPAWN_PILLARS_ATTACK"
+length = 2.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_pillars"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationTree:parameters/conditions/spawn_pillars_attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "SPAWN_SWORD_ATTACK"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 477, 478, 479, 480, 481, 482, 483, 484, 485, 476, 477, 478, 479, 480 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_swords"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationTree:parameters/conditions/spawn_sword_attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=63]
+animation = "BOOMERANG_ATTACK"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "DEATH"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "PORT_IN"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "PORT_OUT"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "SPAWN"
+
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "SPAWN_PILLARS_ATTACK"
+
+[sub_resource type="AnimationNodeAnimation" id=39]
+animation = "SPAWN_SWORD_ATTACK"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+advance_condition = "death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+switch_mode = 2
+auto_advance = true
+advance_condition = "port_in"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+auto_advance = true
+advance_condition = "port_out"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+advance_condition = "death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+advance_condition = "death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+advance_condition = "port_out"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+advance_condition = "death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+switch_mode = 2
+auto_advance = true
+advance_condition = "port_out"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+switch_mode = 2
+advance_condition = "spawn_sword_attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+advance_condition = "death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+switch_mode = 2
+advance_condition = "spawn_pillars_attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+switch_mode = 2
+auto_advance = true
+advance_condition = "port_out"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
+advance_condition = "death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+switch_mode = 2
+advance_condition = "boomerang_attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=67]
+switch_mode = 2
+auto_advance = true
+advance_condition = "port_out"
+
+[sub_resource type="AnimationNodeStateMachine" id=11]
+states/BOOMERANG_ATTACK/node = SubResource( 63 )
+states/BOOMERANG_ATTACK/position = Vector2( 630, 138 )
+states/DEATH/node = SubResource( 13 )
+states/DEATH/position = Vector2( 834, 338 )
+states/PORT_IN/node = SubResource( 15 )
+states/PORT_IN/position = Vector2( 630, 257 )
+states/PORT_OUT/node = SubResource( 16 )
+states/PORT_OUT/position = Vector2( 447, 338 )
+states/SPAWN/node = SubResource( 10 )
+states/SPAWN/position = Vector2( 264, 247 )
+states/SPAWN_PILLARS_ATTACK/node = SubResource( 44 )
+states/SPAWN_PILLARS_ATTACK/position = Vector2( 769, 487.409 )
+states/SPAWN_SWORD_ATTACK/node = SubResource( 39 )
+states/SPAWN_SWORD_ATTACK/position = Vector2( 466, 487.409 )
+transitions = [ "SPAWN", "DEATH", SubResource( 14 ), "PORT_OUT", "PORT_IN", SubResource( 17 ), "SPAWN", "PORT_OUT", SubResource( 18 ), "PORT_IN", "DEATH", SubResource( 23 ), "PORT_OUT", "DEATH", SubResource( 24 ), "PORT_IN", "PORT_OUT", SubResource( 35 ), "SPAWN_SWORD_ATTACK", "DEATH", SubResource( 40 ), "SPAWN_SWORD_ATTACK", "PORT_OUT", SubResource( 41 ), "PORT_IN", "SPAWN_SWORD_ATTACK", SubResource( 42 ), "SPAWN_PILLARS_ATTACK", "DEATH", SubResource( 45 ), "PORT_IN", "SPAWN_PILLARS_ATTACK", SubResource( 46 ), "SPAWN_PILLARS_ATTACK", "PORT_OUT", SubResource( 47 ), "BOOMERANG_ATTACK", "DEATH", SubResource( 64 ), "PORT_IN", "BOOMERANG_ATTACK", SubResource( 66 ), "BOOMERANG_ATTACK", "PORT_OUT", SubResource( 67 ) ]
+start_node = "SPAWN"
+graph_offset = Vector2( -75.6646, 107.128 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+
+[node name="HeartHoarderBoss" type="KinematicBody2D"]
+modulate = Color( 1, 1, 1, 0.0118844 )
+scale = Vector2( 1.5, 1.5 )
+collision_layer = 2
+collision_mask = 32
+script = ExtResource( 2 )
+current_state = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 36
+vframes = 16
+frame = 332
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/BOOMERANG_ATTACK = SubResource( 62 )
+anims/DEATH = SubResource( 6 )
+anims/IDLE = SubResource( 2 )
+anims/PORT_IN = SubResource( 7 )
+anims/PORT_OUT = SubResource( 8 )
+anims/SPAWN = SubResource( 77 )
+anims/SPAWN_PILLARS_ATTACK = SubResource( 43 )
+anims/SPAWN_SWORD_ATTACK = SubResource( 38 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 11 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 12 )
+parameters/conditions/boomerang_attack = false
+parameters/conditions/death = false
+parameters/conditions/port_in = false
+parameters/conditions/port_out = false
+parameters/conditions/spawn_pillars_attack = false
+parameters/conditions/spawn_sword_attack = false
+script = ExtResource( 3 )
+
+[node name="KnockBackTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="SlowDownTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="SpawnSwordTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
+[connection signal="timeout" from="SlowDownTimer" to="." method="_on_SlowDownTimer_timeout"]
