@@ -166,7 +166,6 @@ func die():
 func _process(delta):
 	camera_screen_shake()
 	check_camera_vertical_movement()
-	get_attack_input()
 	knock_back()
 	idle()
 
@@ -180,6 +179,7 @@ func _physics_process(delta):
 	get_jump_input()
 	get_dash_input()
 	wall_climb()
+	get_attack_input()
 
 
 func camera_screen_shake():
