@@ -104,10 +104,13 @@ func choose_state():
 
 
 func check_stagger():
-	if hp <= max_hp-1 && hp > 0 && stagger1:
+	if hp <= (max_hp/100)*65 && hp > 0 && stagger1:
 		current_state = STAGGER
 		stagger1 = false
 
+func start_second_phase():
+	get_parent().get_node("HeartHoarderBoss2").start()
+	get_parent().get_node("HeartHoarderBoss2").global_position = global_position
 
 func teleport():
 	match current_state:
@@ -208,3 +211,7 @@ func set_camera_shake(var shake_power):
 
 func set_game_speed(var game_speed):
 	Engine.time_scale = game_speed
+
+func stop_second_phase_after_death():
+	$"2ndPhaseHitbox".queue_free()
+	get_parent().get_node("HeartHoarderBoss2").queue_free()
