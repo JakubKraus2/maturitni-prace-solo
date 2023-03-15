@@ -25,14 +25,14 @@ var boomerang_attack_projectile = load("res://entities/bosses/projectiles/HeartH
 
 var item_drop = load("res://items/bosses/ItemFireballSkill.tscn")
 
-export var current_state = IDLE
+export var current_state = PORT
 
 var stagger1 = true
 
 
 func start():
 	set_process(true)
-	current_state = IDLE
+	current_state = PORT
 
 func _init(): #change parameters from parent
 	hp = 1200
@@ -113,6 +113,7 @@ func start_second_phase():
 	get_parent().get_node("HeartHoarderBoss2").global_position = global_position
 
 func teleport():
+	print(current_state)
 	match current_state:
 		RUNNING_ATTACK:
 			running_attack_teleport()
