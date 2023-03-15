@@ -78,6 +78,6 @@ position = Vector2( -44.6667, 28.6667 )
 [node name="BossHealthBar" parent="HeartHoarderBoss" instance=ExtResource( 7 )]
 
 [node name="HeartHoarderBoss2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 356, 419 )
+position = Vector2( 280, 517 )
 
 [node name="BossHealthBar" parent="HeartHoarderBoss2" instance=ExtResource( 7 )]
