@@ -8,6 +8,7 @@ export var gravity = 20
 
 export var max_knockback_power = 150
 export var hp = 80
+export onready var max_hp = hp
 
 var moving_left = true
 
@@ -16,11 +17,16 @@ onready var animation_tree = $AnimationTree
 onready var hurt_timer = $HurtTimer
 
 var direction
+onready var starting_position = global_position
 
 export var attack_knock_back_power = 100
 var attack_shake_power = 1.5
 
 var aggro = false
+
+
+func _ready() -> void:
+	add_to_group("enemy")
 
 func _physics_process(delta):
 	velocity.y = velocity.y + gravity
@@ -75,3 +81,20 @@ func knock_back():
 
 func _on_HurtTimer_timeout() -> void:
 	modulate = Color(1, 1, 1) #boss texture goes back to normal
+
+func deactivate_after_death():
+	visible = false
+	set_physics_process(false)
+	set_process(false)
+	$AnimationTree.active = false
+
+func respawn():
+	set_physics_process(true)
+	set_process(true)
+	_ready()
+	visible = true
+	hp = max_hp
+	$AnimationTree.active = true
+	$AnimationTree.set_condition("death", false)
+	$CollisionShape2D.disabled = false
+	global_position = starting_position

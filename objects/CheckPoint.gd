@@ -10,6 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") && get_overlapping_areas():
 		save_and_load_all()
+		respawn_enemies()
 		CheckpointMenu.visible = true
 	if CheckpointMenu.visible:
 		SwordsMaster.attacking = true
@@ -28,6 +29,8 @@ func save_and_load_all():
 	Hud.get_node("ManaBar").set_to_max() #fill mana to full
 	print(game_data)
 
+func respawn_enemies():
+	get_tree().call_group("enemy", "respawn")
 
 func _on_CheckPoint_area_entered(area: Area2D) -> void:
 	$PickText.visible = true

@@ -16,6 +16,12 @@ enum {
 
 var current_state = WALK
 
+func _init() -> void:
+	max_hp = hp
+
+func _ready() -> void:
+	current_state = WALK
+
 func _process(delta):
 	choose_state()
 	match current_state:
@@ -41,4 +47,3 @@ func _on_HitDetector_area_entered(area: Area2D) -> void:
 		PlayerBasicData.current_lives -= 1
 		SwordsMaster.die()
 		print("hit")
-

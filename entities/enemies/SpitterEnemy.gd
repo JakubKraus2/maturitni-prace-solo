@@ -14,8 +14,12 @@ var current_state = WALK
 
 func _init() -> void:
 	hp = 100
+	max_hp = hp
 	max_knockback_power = 300
 	speed = 25
+
+func _ready() -> void:
+	current_state = WALK
 
 func _process(delta):
 	choose_state()

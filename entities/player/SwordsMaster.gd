@@ -233,6 +233,7 @@ func load_after_death():
 	Hud.get_node("Lives").update_lives()
 	Hud.get_node("Healing").update_healing()
 	Hud.get_node("ManaBar").set_to_max()
+	get_tree().call_group("enemy", "respawn")
 
 func engine_time_scale():
 	Engine.time_scale = 1.0

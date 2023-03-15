@@ -215,4 +215,6 @@ func set_game_speed(var game_speed):
 
 func stop_second_phase_after_death():
 	$"2ndPhaseHitbox".queue_free()
+	get_parent().get_node("HeartHoarderBoss2").game_data.dead = true
+	get_parent().get_node("HeartHoarderBoss2").save_data()
 	get_parent().get_node("HeartHoarderBoss2").queue_free()
