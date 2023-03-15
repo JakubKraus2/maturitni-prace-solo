@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://HUD/boss/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://HUD/boss/BossHealthBar.gd" type="Script" id=2]
 [ext_resource path="res://assets/HUD/boss/healthbar_border.png" type="Texture" id=3]
+[ext_resource path="res://fonts/joystix monospace.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.356863, 0.0705882, 0.0705882, 1 )
@@ -15,6 +16,10 @@ bg_color = Color( 0.580392, 0.592157, 0.113725, 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = ExtResource( 4 )
 
 [node name="BossHealthBar" type="CanvasLayer"]
 visible = false
@@ -52,5 +57,13 @@ margin_top = 31.0
 margin_right = 482.0
 margin_bottom = 43.0
 texture = ExtResource( 3 )
+
+[node name="BossName" type="Label" parent="."]
+margin_left = 177.0
+margin_top = 44.0
+margin_right = 268.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 5 )
+text = "boss name"
 
 [connection signal="timeout" from="ProgressBar/Timer" to="ProgressBar" method="_on_Timer_timeout"]

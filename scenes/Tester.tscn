@@ -34,7 +34,7 @@ position = Vector2( 1224.25, 338.5 )
 shape = SubResource( 3 )
 
 [node name="CheckPoint" parent="Area2D" instance=ExtResource( 1 )]
-position = Vector2( 516.002, 348 )
+position = Vector2( 359.002, 348 )
 
 [node name="GhoulEnemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 657.998, 254 )
