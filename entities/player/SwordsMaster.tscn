@@ -1257,7 +1257,6 @@ collision_mask = 0
 self_modulate = Color( 0, 1, 0.227451, 1 )
 position = Vector2( 1, 5 )
 shape = SubResource( 36 )
-disabled = true
 
 [node name="WallClimbDetector" type="Area2D" parent="."]
 visible = false
