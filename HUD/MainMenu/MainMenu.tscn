@@ -125,4 +125,5 @@ margin_bottom = 114.0
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 8 )
 
+[connection signal="pressed" from="Node2D/MainContainer/ButtonsCenterContainer/Buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Node2D/MainContainer/ButtonsCenterContainer/Buttons/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]

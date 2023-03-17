@@ -168,4 +168,5 @@ anims/CLOSE = SubResource( 2 )
 anims/OPEN = SubResource( 1 )
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitToMenuButton" to="." method="_on_QuitToMenuButton_pressed"]
