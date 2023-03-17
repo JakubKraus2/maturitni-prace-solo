@@ -11,3 +11,20 @@ onready var current_skill3_mana_cost = SaveFile.game_data.current_skill3_mana_co
 onready var current_skill1_damage = SaveFile.game_data.current_skill1_damage
 onready var current_skill2_damage = SaveFile.game_data.current_skill2_damage
 onready var current_skill3_damage = SaveFile.game_data.current_skill3_damage
+
+
+func _process(delta: float) -> void:
+	if Hud.get_node("ManaBar").value < HudSkill.current_skill1_mana_cost && HudSkill.current_skill1 != "":
+		$HUDSkillIcon3.modulate = Color(0.3, 0.3, 0.3)
+	else:
+		$HUDSkillIcon3.modulate = Color(1, 1, 1)
+		
+	if Hud.get_node("ManaBar").value < HudSkill.current_skill2_mana_cost && HudSkill.current_skill2 != "":
+		$HUDSkillIcon2.modulate = Color(0.3, 0.3, 0.3)
+	else:
+		$HUDSkillIcon2.modulate = Color(1, 1, 1)
+		
+	if Hud.get_node("ManaBar").value < HudSkill.current_skill3_mana_cost && HudSkill.current_skill3 != "":
+		$HUDSkillIcon1.modulate = Color(0.3, 0.3, 0.3)
+	else:
+		$HUDSkillIcon1.modulate = Color(1, 1, 1)
