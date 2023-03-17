@@ -38,8 +38,7 @@ EscapeMenu="*res://HUD/EscapeMenu/EscapeMenu.tscn"
 
 window/size/width=640
 window/size/height=360
-window/size/fullscreen=true
-window/stretch/mode="2d"
+window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [global]

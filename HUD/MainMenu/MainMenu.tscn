@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://particles/Particles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/joystix monospace.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/HUD/main_menu/load_game_button_hover.png" type="Texture" id=10]
 [ext_resource path="res://assets/HUD/skills/HUD_skill_menu_split_line.png" type="Texture" id=11]
 [ext_resource path="res://assets/PARTICLES/particles.png" type="Texture" id=12]
+[ext_resource path="res://HUD/MainMenu/MainMenu.gd" type="Script" id=13]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.398323, 1 ), -0.198724, 0.0, 0, 0, Vector2( 0.767296, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -40,6 +41,7 @@ extra_spacing_char = 6
 font_data = ExtResource( 2 )
 
 [node name="MainMenu" type="CanvasLayer"]
+script = ExtResource( 13 )
 
 [node name="Light" type="Sprite" parent="."]
 modulate = Color( 0.419608, 0.435294, 0.811765, 0.403922 )
@@ -71,7 +73,7 @@ custom_constants/separation = 70
 
 [node name="TitleCenterContainer" type="CenterContainer" parent="Node2D/MainContainer"]
 margin_right = 640.0
-margin_bottom = 57.6
+margin_bottom = 58.0
 
 [node name="Sprite" type="Sprite" parent="Node2D/MainContainer/TitleCenterContainer"]
 position = Vector2( 315, 61.7857 )
@@ -79,16 +81,16 @@ scale = Vector2( 2.02009, 0.151787 )
 texture = ExtResource( 11 )
 
 [node name="Title" type="Label" parent="Node2D/MainContainer/TitleCenterContainer"]
-margin_left = 140.0
-margin_right = 500.0
-margin_bottom = 57.6
+margin_left = 139.0
+margin_right = 501.0
+margin_bottom = 58.0
 custom_fonts/font = SubResource( 4 )
 text = "Rpg Game"
 
 [node name="ButtonsCenterContainer" type="CenterContainer" parent="Node2D/MainContainer"]
-margin_top = 127.0
+margin_top = 128.0
 margin_right = 640.0
-margin_bottom = 241.0
+margin_bottom = 242.0
 
 [node name="Buttons" type="VBoxContainer" parent="Node2D/MainContainer/ButtonsCenterContainer"]
 margin_left = 215.0
@@ -122,3 +124,5 @@ margin_right = 210.0
 margin_bottom = 114.0
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 8 )
+
+[connection signal="pressed" from="Node2D/MainContainer/ButtonsCenterContainer/Buttons/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
