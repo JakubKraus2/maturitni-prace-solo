@@ -275,7 +275,7 @@ aggro_speed = 150
 texture = ExtResource( 1 )
 hframes = 11
 vframes = 6
-frame = 12
+frame = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
