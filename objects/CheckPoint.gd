@@ -22,6 +22,7 @@ func save_and_load_all():
 	game_data.current_lives = PlayerBasicData.max_lives #save to file
 	game_data.current_healing = PlayerBasicData.max_healing #save to file
 	game_data.current_mana = PlayerBasicData.max_mana #save to file
+	game_data.current_scene = get_tree().current_scene.filename
 	SaveFile.save_data() #save the file
 	PlayerBasicData._ready() #load new stats
 	Hud.get_node("Lives").update_lives() #fill lives to full

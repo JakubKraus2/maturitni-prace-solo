@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://particles/Particles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/joystix monospace.ttf" type="DynamicFontData" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/HUD/skills/HUD_skill_menu_split_line.png" type="Texture" id=11]
 [ext_resource path="res://assets/PARTICLES/particles.png" type="Texture" id=12]
 [ext_resource path="res://HUD/MainMenu/MainMenu.gd" type="Script" id=13]
+[ext_resource path="res://assets/HUD/main_menu/load_game_button_disabled.png" type="Texture" id=14]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.398323, 1 ), -0.198724, 0.0, 0, 0, Vector2( 0.767296, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -110,6 +111,7 @@ margin_right = 210.0
 margin_bottom = 54.0
 texture_normal = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 14 )
 
 [node name="OptionsButton" type="TextureButton" parent="Node2D/MainContainer/ButtonsCenterContainer/Buttons"]
 margin_top = 60.0
@@ -125,5 +127,6 @@ margin_bottom = 114.0
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 8 )
 
+[connection signal="pressed" from="Node2D/MainContainer/ButtonsCenterContainer/Buttons/LoadGameButton" to="." method="_on_LoadGameButton_pressed"]
 [connection signal="pressed" from="Node2D/MainContainer/ButtonsCenterContainer/Buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Node2D/MainContainer/ButtonsCenterContainer/Buttons/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]

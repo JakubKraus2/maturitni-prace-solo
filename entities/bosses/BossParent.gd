@@ -73,6 +73,7 @@ func death():
 		SaveFile.game_data.positiony = SwordsMaster.global_position.y
 		SaveFile.game_data.current_lives = PlayerBasicData.current_lives
 		SaveFile.game_data.current_healing = PlayerBasicData.current_healing
+		SaveFile.game_data.current_scene = get_tree().current_scene.filename
 		SaveFile.save_data()
 
 

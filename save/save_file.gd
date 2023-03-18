@@ -18,6 +18,7 @@ func load_data():
 	var file = File.new()
 	if !file.file_exists(SAVE_PATH):
 		game_data = {
+			"current_scene": "",
 			"positionx": 0,
 			"positiony": 0,
 			"max_lives": 5,
