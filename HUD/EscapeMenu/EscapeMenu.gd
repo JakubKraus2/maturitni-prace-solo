@@ -14,6 +14,7 @@ func _on_ContinueButton_pressed() -> void:
 	$AnimationPlayer.play("CLOSE")
 
 func _on_QuitToMenuButton_pressed() -> void:
+	$AnimationPlayer.play("CLOSE")
 	get_tree().change_scene("res://HUD/MainMenu/MainMenu.tscn")
 
 

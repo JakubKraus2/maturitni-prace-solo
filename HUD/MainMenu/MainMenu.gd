@@ -25,9 +25,40 @@ func _on_LoadGameButton_pressed() -> void:
 
 
 func _on_NewGameButton_pressed() -> void:
+	if SaveFile.game_data.health_amulet_equipped == true:
+		Hud.get_node("Lives").upgrade_live(-1)
+		PlayerBasicData.current_lives -= 1
+		SaveFile.game_data.max_lives = PlayerBasicData.max_lives
+		SaveFile.game_data.current_lives = PlayerBasicData.current_lives
+		SaveFile.game_data.health_amulet_equipped = false
+		SaveFile.save_data()
 	delete_all_files("user://")
+	reset_player()
+	reset_skill_ui()
+	reset_artefacts_ui()
+	Hud.get_node("Lives").check_max_lives()
+	Hud.get_node("Healing").check_max_healing()
+	Hud.get_node("ManaBar").set_to_max()
+	SaveFile.save_data()
+	SpecialSkillMenu.save_data()
+	ArtefactMenu.save_data()
+
+func delete_all_files(path):
+	var files = []
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
 	
-	#PLAYER POSITION -> need to set hp, mana, healing to max
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif !file.begins_with("."):
+			dir.remove(file)
+	dir.list_dir_end()
+	return files
+
+func reset_player():
 	SaveFile.load_data()
 	PlayerBasicData._ready()
 	SwordsMaster.velocity.y = 0
@@ -36,7 +67,8 @@ func _on_NewGameButton_pressed() -> void:
 	SwordsMaster.global_position.y = SaveFile.game_data.positiony
 	get_tree().change_scene("res://scenes/BossArena.tscn")
 	SaveFile.game_data.current_scene = "res://scenes/BossArena.tscn"
-	
+
+func reset_skill_ui():
 	SpecialSkillMenu.load_data()
 	HudSkill._ready()
 	HudSkill.get_node("HUDSkillIcon3").texture = load("res://assets/HUD/skills/skill_icon.png")
@@ -52,7 +84,11 @@ func _on_NewGameButton_pressed() -> void:
 	SpecialSkillMenu.get_node("DesciptionContainer/CenterContainer2/Icon").texture = load("res://assets/HUD/skills/nothing.png")
 	SpecialSkillMenu.get_node("DesciptionContainer/SkillDescription").text = ""
 	SpecialSkillMenu.get_node("DesciptionContainer/CenterContainer3/SkillManaCost").text = ""
+	SpecialSkillMenu.skills.current_skill1_texture_normal = "res://assets/HUD/skills/skill_icon.png"
+	SpecialSkillMenu.skills.current_skill2_texture_normal = "res://assets/HUD/skills/skill_icon.png"
+	SpecialSkillMenu.skills.current_skill3_texture_normal = "res://assets/HUD/skills/skill_icon.png"
 
+func reset_artefacts_ui():
 	ArtefactMenu.load_data()
 	ArtefactMenu.artefacts.current_artefact1_artefact_name = ""
 	ArtefactMenu.artefacts.current_artefact2_artefact_name = ""
@@ -73,32 +109,10 @@ func _on_NewGameButton_pressed() -> void:
 	ArtefactMenu.get_node("DesciptionContainer/CenterContainer/ArtefactName").text = ""
 	ArtefactMenu.get_node("DesciptionContainer/CenterContainer2/Icon").texture = load("res://assets/HUD/skills/nothing.png")
 	ArtefactMenu.get_node("DesciptionContainer/ArtefactDescription").text = ""
+	ArtefactMenu.artefacts.current_artefact1_texture_normal = "res://assets/HUD/artefacts/artefact_icon.png"
+	ArtefactMenu.artefacts.current_artefact2_texture_normal = "res://assets/HUD/artefacts/artefact_icon.png"
+	ArtefactMenu.artefacts.current_artefact3_texture_normal = "res://assets/HUD/artefacts/artefact_icon.png"
+	ArtefactMenu.artefacts.current_artefact4_texture_normal = "res://assets/HUD/artefacts/artefact_icon.png"
 	for i in ArtefactMenu.get_node("Artefacts1").get_child_count():
 		ArtefactMenu.get_node("Artefacts1").get_child(i).boost()
-#	SaveFile.load_data()
-#	SpecialSkillMenu.load_data()
-#	ArtefactMenu.load_data()
-#	SwordsMaster.velocity.y = 0
-#	SwordsMaster.velocity.x = 0
-#	SwordsMaster.global_position.x = SaveFile.SaveFile.game_data.positionx
-#	SwordsMaster.global_position.y = SaveFile.SaveFile.game_data.positiony
-#	get_tree().change_scene("res://scenes/BossArena.tscn")
-#	PlayerBasicData._ready() #load new stats
-#	Hud.get_node("Lives").update_lives() #fill lives to full
-#	Hud.get_node("Healing").update_healing() #fill healing to full
-#	SaveFile.save_data()
-
-func delete_all_files(path):
-	var files = []
-	var dir = Directory.new()
-	dir.open(path)
-	dir.list_dir_begin()
-	
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif !file.begins_with("."):
-			dir.remove(file)
-	dir.list_dir_end()
-	return files
+	StatusMenu.update_stats()
