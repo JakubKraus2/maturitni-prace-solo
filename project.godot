@@ -35,6 +35,7 @@ CheckpointMenu="*res://HUD/CheckpointMenu/CheckpointMenu.tscn"
 StatusMenu="*res://HUD/statusMenu/StatusMenu.tscn"
 ArtefactMenu="*res://HUD/ArtefactMenu/ArtefactMenu.tscn"
 EscapeMenu="*res://HUD/EscapeMenu/EscapeMenu.tscn"
+LoadingScreen="*res://HUD/LoadingScreen/LoadingScreen.tscn"
 
 [display]
 

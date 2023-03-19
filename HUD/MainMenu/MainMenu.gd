@@ -5,26 +5,32 @@ onready var settingsmenu = load("res://ControlTest.tscn")
 
 
 func _ready() -> void:
+	$AnimationPlayer.play("DEFAULT")
 	$Node2D/MainContainer/ButtonsCenterContainer/Buttons/LoadGameButton.disabled = true if SaveFile.game_data.current_scene == "" else false
 
 
 func _on_QuitGameButton_pressed():
 	get_tree().quit()
 
-
 func _on_OptionsButton_pressed() -> void:
 	get_parent().add_child(settingsmenu.instance())
 
-
 func _on_LoadGameButton_pressed() -> void:
+	$AnimationPlayer.play("LOAD_GAME")
+
+func _on_NewGameButton_pressed() -> void:
+	$AnimationPlayer.play("NEW_GAME")
+
+
+func load_game():
 	SwordsMaster.velocity.y = 0
 	SwordsMaster.velocity.x = 0
 	SwordsMaster.global_position.x = SaveFile.game_data.positionx
 	SwordsMaster.global_position.y = SaveFile.game_data.positiony
 	get_tree().change_scene(SaveFile.game_data.current_scene)
+	LoadingScreen.get_node("AnimationPlayer").play("LOADING")
 
-
-func _on_NewGameButton_pressed() -> void:
+func new_game():
 	if SaveFile.game_data.health_amulet_equipped == true:
 		Hud.get_node("Lives").upgrade_live(-1)
 		PlayerBasicData.current_lives -= 1
@@ -36,12 +42,14 @@ func _on_NewGameButton_pressed() -> void:
 	reset_player()
 	reset_skill_ui()
 	reset_artefacts_ui()
-	Hud.get_node("Lives").check_max_lives()
-	Hud.get_node("Healing").check_max_healing()
-	Hud.get_node("ManaBar").set_to_max()
+	reset_hud_ui()
 	SaveFile.save_data()
 	SpecialSkillMenu.save_data()
 	ArtefactMenu.save_data()
+	SwordsMaster.attacking = false
+	SwordsMaster.can_dash = true
+	LoadingScreen.get_node("AnimationPlayer").play("LOADING")
+
 
 func delete_all_files(path):
 	var files = []
@@ -67,6 +75,13 @@ func reset_player():
 	SwordsMaster.global_position.y = SaveFile.game_data.positiony
 	get_tree().change_scene("res://scenes/BossArena.tscn")
 	SaveFile.game_data.current_scene = "res://scenes/BossArena.tscn"
+
+func reset_hud_ui():
+	Hud.get_node("Lives").check_max_lives()
+	Hud.get_node("Lives").update_lives()
+	Hud.get_node("Healing").check_max_healing()
+	Hud.get_node("Healing").update_healing()
+	Hud.get_node("ManaBar").set_to_max()
 
 func reset_skill_ui():
 	SpecialSkillMenu.load_data()
