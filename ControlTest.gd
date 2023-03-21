@@ -50,7 +50,6 @@ func change_bind(key, value):
 
 func _on_back_pressed():
 	queue_free()
-	get_tree().paused = false
 
 func _on_save_pressed():
 	Global.keybinds = keybinds.duplicate()

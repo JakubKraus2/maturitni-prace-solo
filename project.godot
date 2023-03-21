@@ -11,7 +11,9 @@ config_version=4
 [application]
 
 config/name="Dlouhodoba_maturitni_prace"
-run/main_scene="res://scenes/BossArena.tscn"
+run/main_scene="res://HUD/MainMenu/MainMenu.tscn"
+boot_splash/show_image=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [audio]
@@ -33,12 +35,13 @@ CheckpointMenu="*res://HUD/CheckpointMenu/CheckpointMenu.tscn"
 StatusMenu="*res://HUD/statusMenu/StatusMenu.tscn"
 ArtefactMenu="*res://HUD/ArtefactMenu/ArtefactMenu.tscn"
 EscapeMenu="*res://HUD/EscapeMenu/EscapeMenu.tscn"
+LoadingScreen="*res://HUD/LoadingScreen/LoadingScreen.tscn"
 
 [display]
 
 window/size/width=640
 window/size/height=360
-window/stretch/mode="viewport"
+window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [global]

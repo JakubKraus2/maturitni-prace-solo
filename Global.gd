@@ -6,14 +6,6 @@ var configfile
 
 var keybinds = {}	 #keybinds dictionary
 
-func _input(event):
-#	if Input.is_key_pressed(KEY_ESCAPE):
-#		get_tree().change_scene("res://menu.tscn")
-	if Input.is_key_pressed(KEY_Q):  #when escape key is pressed 
-		add_child(settingsmenu.instance())  #adding an instance of the settings menu we made (onready var settingsmenu = load("res://menu.tscn"))
-		get_tree().paused = true  #pausing the game
-
-
 func _ready():
 	configfile = ConfigFile.new()
 	if configfile.load(filepath) == OK: #checking if the file exist

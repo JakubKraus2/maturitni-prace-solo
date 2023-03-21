@@ -4,8 +4,6 @@ extends CanvasLayer
 const SAVE_PATH = "user://skill_inventory_save_file.save"
 var skills = {}
 
-onready var game_data = SaveFile.game_data
-
 export(ButtonGroup) var skill1_group #only one button can be pressed in Skills1 menu
 export(ButtonGroup) var skill2_group
 export(ButtonGroup) var skill3_group
@@ -33,9 +31,9 @@ func skill1_button_pressed(): #after clicking on certain button in skill1 group 
 	HudSkill.current_skill1_mana_cost = skill1_group.get_pressed_button().mana_cost
 	HudSkill.current_skill1_damage = skill1_group.get_pressed_button().damage
 	
-	game_data.current_skill1 = skill1_group.get_pressed_button().skill
-	game_data.current_skill1_mana_cost = skill1_group.get_pressed_button().mana_cost
-	game_data.current_skill1_damage = skill1_group.get_pressed_button().damage
+	SaveFile.game_data.current_skill1 = skill1_group.get_pressed_button().skill
+	SaveFile.game_data.current_skill1_mana_cost = skill1_group.get_pressed_button().mana_cost
+	SaveFile.game_data.current_skill1_damage = skill1_group.get_pressed_button().damage
 	SaveFile.save_data()
 	save_data()
 
@@ -51,9 +49,9 @@ func skill2_button_pressed():
 	HudSkill.current_skill2_mana_cost = skill2_group.get_pressed_button().mana_cost
 	HudSkill.current_skill2_damage = skill2_group.get_pressed_button().damage
 	
-	game_data.current_skill2 = skill2_group.get_pressed_button().skill
-	game_data.current_skill2_mana_cost = skill2_group.get_pressed_button().mana_cost
-	game_data.current_skill2_damage = skill2_group.get_pressed_button().damage
+	SaveFile.game_data.current_skill2 = skill2_group.get_pressed_button().skill
+	SaveFile.game_data.current_skill2_mana_cost = skill2_group.get_pressed_button().mana_cost
+	SaveFile.game_data.current_skill2_damage = skill2_group.get_pressed_button().damage
 	SaveFile.save_data()
 	save_data()
 
@@ -69,9 +67,9 @@ func skill3_button_pressed():
 	HudSkill.current_skill3_mana_cost = skill3_group.get_pressed_button().mana_cost
 	HudSkill.current_skill3_damage = skill3_group.get_pressed_button().damage
 	
-	game_data.current_skill3 = skill3_group.get_pressed_button().skill
-	game_data.current_skill3_mana_cost = skill3_group.get_pressed_button().mana_cost
-	game_data.current_skill3_damage = skill3_group.get_pressed_button().damage
+	SaveFile.game_data.current_skill3 = skill3_group.get_pressed_button().skill
+	SaveFile.game_data.current_skill3_mana_cost = skill3_group.get_pressed_button().mana_cost
+	SaveFile.game_data.current_skill3_damage = skill3_group.get_pressed_button().damage
 	SaveFile.save_data()
 	save_data()
 

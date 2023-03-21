@@ -222,6 +222,9 @@ func death_anim():
 	HudSkill.visible = false
 
 func load_after_death():
+	velocity.y = 0
+	velocity.x = 0
+	get_tree().change_scene(game_data.current_scene)
 	Hud.get_node("Lives").set_physics_process(true)
 	Hud.get_node("Healing").set_physics_process(true)
 	Hud.visible = true
