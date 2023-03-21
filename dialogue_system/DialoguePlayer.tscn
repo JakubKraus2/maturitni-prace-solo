@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/DIALOGUE/dialogue.png" type="Texture" id=1]
+[ext_resource path="res://assets/DIALOGUE/dialogue_border.png" type="Texture" id=1]
 [ext_resource path="res://dialogue_system/DialoguePlayer.gd" type="Script" id=2]
 [ext_resource path="res://fonts/yoster.ttf" type="DynamicFontData" id=3]
 
@@ -9,7 +9,7 @@ size = 18
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 18
+size = 12
 font_data = ExtResource( 3 )
 
 [node name="DialoguePlayer" type="CanvasLayer"]
@@ -19,19 +19,17 @@ dialogue_file = "res://NPC.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 visible = false
+self_modulate = Color( 1, 1, 1, 0.823529 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -306.0
-margin_top = 25.0
-margin_right = 306.0
-margin_bottom = 219.0
+margin_left = -320.0
+margin_top = 277.0
+margin_right = 320.0
+margin_bottom = 362.0
 texture = ExtResource( 1 )
-patch_margin_left = 35
-patch_margin_top = 44
-patch_margin_right = 27
-patch_margin_bottom = 41
 
 [node name="name" type="Label" parent="NinePatchRect"]
+visible = false
 margin_left = 27.0
 margin_top = 18.0
 margin_right = 107.0
@@ -41,12 +39,13 @@ text = "name"
 autowrap = true
 
 [node name="message" type="Label" parent="NinePatchRect"]
-margin_left = 52.0
-margin_top = 43.0
-margin_right = 593.0
-margin_bottom = 174.0
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 620.0
+margin_bottom = 156.0
 custom_fonts/font = SubResource( 2 )
 text = "message"
+align = 1
 autowrap = true
 
 [node name="CharTimer" type="Timer" parent="."]
