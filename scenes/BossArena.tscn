@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://HUD/boss/BossHealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/bosses/other/BossCutsceneCamera.tscn" type="PackedScene" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://items/bosses/ItemFireballSkill.tscn" type="PackedScene" id=23]
 [ext_resource path="res://items/artefacts/ItemArtefactCowardShield.tscn" type="PackedScene" id=24]
 [ext_resource path="res://items/artefacts/ItemArtefactThornedRose.tscn" type="PackedScene" id=25]
+[ext_resource path="res://entities/NPCs/WatcherNPC.tscn" type="PackedScene" id=26]
+[ext_resource path="res://dialogue_system/DialoguePlayer.tscn" type="PackedScene" id=27]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1383.5, 7.5 )
@@ -104,19 +106,19 @@ scale = Vector2( 85.375, 3.95313 )
 position = Vector2( 2306, 296 )
 
 [node name="ItemArtefactHealthAmulet" parent="." instance=ExtResource( 8 )]
-position = Vector2( 342, 283 )
+position = Vector2( 515, 285 )
 
 [node name="ItemArtefactExecutionerSword" parent="." instance=ExtResource( 3 )]
-position = Vector2( 278, 282 )
+position = Vector2( 451, 284 )
 
 [node name="ItemArtefactManaRing" parent="." instance=ExtResource( 9 )]
-position = Vector2( 415, 281 )
+position = Vector2( 588, 283 )
 
 [node name="ItemArtefactHasteIdol" parent="." instance=ExtResource( 10 )]
-position = Vector2( 482, 279 )
+position = Vector2( 655, 281 )
 
 [node name="ItemArtefactCowardSword" parent="." instance=ExtResource( 15 )]
-position = Vector2( 549, 278 )
+position = Vector2( 722, 280 )
 
 [node name="Item" parent="." instance=ExtResource( 16 )]
 position = Vector2( -127, 283 )
@@ -134,19 +136,25 @@ position = Vector2( -312, 286 )
 position = Vector2( -370, 286 )
 
 [node name="DoubleJumpUnlocker2" parent="." instance=ExtResource( 21 )]
-position = Vector2( 174, 298 )
+position = Vector2( 347, 300 )
 
 [node name="WallClimbUnlocker" parent="." instance=ExtResource( 22 )]
 position = Vector2( -34, 303 )
 
 [node name="CheckPoint" parent="." instance=ExtResource( 4 )]
-position = Vector2( 75, 293 )
+position = Vector2( 248, 295 )
 
 [node name="ItemFireballSkill" parent="." instance=ExtResource( 23 )]
 position = Vector2( -43, 238 )
 
 [node name="ItemArtefactThornedRose" parent="." instance=ExtResource( 25 )]
-position = Vector2( 628, 295 )
+position = Vector2( 801, 297 )
 
 [node name="ItemArtefactCowardShield" parent="." instance=ExtResource( 24 )]
-position = Vector2( 707, 297 )
+position = Vector2( 880, 299 )
+
+[node name="WatcherNPC" parent="." instance=ExtResource( 26 )]
+position = Vector2( 110, 277 )
+
+[node name="DialoguePlayer" parent="WatcherNPC" instance=ExtResource( 27 )]
+dialogue_file = "res://dialogue_system/json_dialogues/NPC.json"
