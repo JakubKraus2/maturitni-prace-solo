@@ -18,6 +18,8 @@ func play():
 
 	dialogues = load_dialogues()
 	
+	SwordsMaster.attacking = true
+	SwordsMaster.can_dash = false
 	is_dialogue_active = true
 	$NinePatchRect.visible = true
 	current_dialogue_id -= 1
@@ -36,6 +38,8 @@ func next_line():
 	current_char = 0 #reset chars to nothing
 	current_dialogue_id += 1 #next message
 	if current_dialogue_id >= len(dialogues): # if there's no next text
+		SwordsMaster.attacking = false
+		SwordsMaster.can_dash = true
 		queue_free()
 		return
 	
