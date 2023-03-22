@@ -1474,7 +1474,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 36
 vframes = 16
-frame = 5
+frame = 4
 
 [node name="SpriteFallAttack" type="Sprite" parent="."]
 visible = false
@@ -1584,6 +1584,12 @@ one_shot = true
 [node name="SpawnSwordTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 0, 28.3333 )
+scale = Vector2( 4.13333, 3.3 )
+process_parent = true
+physics_process_parent = true
 
 [connection signal="area_entered" from="RunningAttackHitbox" to="RunningAttackHitbox" method="_on_RunningAttackHitbox_area_entered"]
 [connection signal="area_entered" from="FallAttackHitbox" to="FallAttackHitbox" method="_on_FallAttackHitbox_area_entered"]

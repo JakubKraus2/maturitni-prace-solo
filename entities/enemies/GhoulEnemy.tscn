@@ -275,7 +275,7 @@ aggro_speed = 150
 texture = ExtResource( 1 )
 hframes = 11
 vframes = 6
-frame = 18
+frame = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -364,6 +364,11 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRange"]
 position = Vector2( 0, -67 )
 shape = SubResource( 26 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+scale = Vector2( 2, 2 )
+process_parent = true
+physics_process_parent = true
 
 [connection signal="body_entered" from="CollisonDetector" to="." method="_on_CollisonDetector_body_entered"]
 [connection signal="area_entered" from="HitDetector" to="." method="_on_HitDetector_area_entered"]

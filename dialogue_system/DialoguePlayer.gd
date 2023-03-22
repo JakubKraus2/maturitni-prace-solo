@@ -23,7 +23,7 @@ func play():
 	is_dialogue_active = true
 	$NinePatchRect.visible = true
 	current_dialogue_id -= 1
-	$CharTimer.start(0.05) #text reading speed: 1 = 1 second
+	$CharTimer.start(0.075) #text reading speed: 1 = 1 second
 	next_line()
 
 func _input(event):

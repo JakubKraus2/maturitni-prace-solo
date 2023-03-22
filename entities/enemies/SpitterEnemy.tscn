@@ -370,6 +370,12 @@ monitoring = false
 position = Vector2( 0, -67 )
 shape = SubResource( 24 )
 
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 0, 5 )
+scale = Vector2( 2, 2 )
+process_parent = true
+physics_process_parent = true
+
 [connection signal="body_entered" from="CollisonDetector" to="." method="_on_CollisonDetector_body_entered"]
 [connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
 [connection signal="area_entered" from="FieldOfVision" to="." method="_on_FieldOfVision_area_entered"]
