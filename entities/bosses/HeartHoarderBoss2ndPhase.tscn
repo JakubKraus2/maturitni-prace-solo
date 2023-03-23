@@ -540,8 +540,6 @@ one_shot = true
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( 0, 28.6667 )
 scale = Vector2( 3.8, 3.33333 )
-process_parent = true
-physics_process_parent = true
 
 [connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
 [connection signal="timeout" from="SlowDownTimer" to="." method="_on_SlowDownTimer_timeout"]

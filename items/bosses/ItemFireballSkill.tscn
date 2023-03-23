@@ -176,6 +176,10 @@ parameters/playback = SubResource( 9 )
 parameters/conditions/pick = false
 script = ExtResource( 6 )
 
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+process_parent = true
+physics_process_parent = true
+
 [node name="itemPopup" parent="." instance=ExtResource( 7 )]
 item_file = "res://items/json/fireball_item/fireball_skill_item.json"
 

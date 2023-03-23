@@ -21,7 +21,8 @@ func _process(delta: float) -> void:
 
 
 func _on_Unlocker_area_entered(area):
-	$PickText.visible = true
+	if game_data.can_double_jump == false:
+		$PickText.visible = true
 
 func _on_Unlocker_area_exited(area):
 	$PickText.visible = false

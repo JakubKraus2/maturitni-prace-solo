@@ -162,7 +162,7 @@ script = ExtResource( 1 )
 z_index = 1025
 texture = ExtResource( 4 )
 hframes = 11
-frame = 10
+frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
@@ -189,6 +189,10 @@ active = true
 parameters/playback = SubResource( 9 )
 parameters/conditions/pick = false
 script = ExtResource( 6 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+process_parent = true
+physics_process_parent = true
 
 [node name="itemPopup" parent="." instance=ExtResource( 7 )]
 item_file = "res://items/json/player_upgrades/player_live_upgrade_item.json"

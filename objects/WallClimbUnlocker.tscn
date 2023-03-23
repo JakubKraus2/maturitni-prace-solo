@@ -60,5 +60,9 @@ ability_description_file = "res://objects/json/wall_climb_unlock.json"
 
 [node name="UnlockParticle" parent="." instance=ExtResource( 5 )]
 
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+process_parent = true
+physics_process_parent = true
+
 [connection signal="area_entered" from="." to="." method="_on_Unlocker_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Unlocker_area_exited"]

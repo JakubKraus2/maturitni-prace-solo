@@ -53,5 +53,10 @@ text = "[F]"
 root_node = NodePath("../Sprite")
 anims/DEFAULT = SubResource( 3 )
 
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+scale = Vector2( 2, 1.8 )
+process_parent = true
+physics_process_parent = true
+
 [connection signal="area_entered" from="." to="." method="_on_CheckPoint_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_CheckPoint_area_exited"]
