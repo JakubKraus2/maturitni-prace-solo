@@ -175,11 +175,11 @@ func _physics_process(delta):
 	velocity.y = velocity.y + gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x,0,0.5)
+	get_attack_input()
 	get_movement_input()
 	get_jump_input()
 	get_dash_input()
 	wall_climb()
-	get_attack_input()
 
 
 func camera_screen_shake():

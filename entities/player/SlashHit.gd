@@ -20,3 +20,4 @@ func _on_SlashHit_body_entered(body): #body = the thing that is getting hit
 		body.get_node("AggroRange").set_deferred("monitoring", true)
 	body.hp -= PlayerAttacksDamage.slash_damage
 	Hud.get_node("ManaBar").set_bar_value(Hud.get_node("ManaBar").value + PlayerAttacksDamage.slash_damage_mana_gain)
+	$"../AttackHitSound".play(0.07)

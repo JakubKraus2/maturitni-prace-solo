@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://assets/CHARACTERS/Sword_Master_Sprite_Sheet3.png" type="Texture" id=1]
 [ext_resource path="res://entities/player/SwordsMaster.gd" type="Script" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://entities/player/SpinSlashHit.gd" type="Script" id=7]
 [ext_resource path="res://entities/player/Camera2D.gd" type="Script" id=8]
 [ext_resource path="res://entities/player/StoneGolemSkillHit.gd" type="Script" id=9]
+[ext_resource path="res://assets/AUDIO/sounds/player_succesful_hit.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/AUDIO/sounds/player_unsuccesful_hit.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/AUDIO/sounds/player_dash.ogg" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4, 9.5 )
@@ -134,6 +137,20 @@ tracks/5/keys = {
 "method": "get_direction_after_attacking"
 } ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath("AttackSound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.13 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=48]
 resource_name = "DASH"
@@ -174,6 +191,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("DashSound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.04 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=49]
@@ -814,6 +845,20 @@ tracks/5/keys = {
 "method": "get_direction_after_attacking"
 } ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath("AttackSound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.13 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=45]
 resource_name = "SLASH_2"
@@ -894,6 +939,20 @@ tracks/5/keys = {
 }, {
 "args": [  ],
 "method": "get_direction_after_attacking"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("AttackSound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.13 ],
+"method": "play"
 } ]
 }
 
@@ -1329,6 +1388,15 @@ self_modulate = Color( 0, 0, 0, 0 )
 show_behind_parent = true
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 547, 325, 536, -366, -568, -343, -583, 320 )
+
+[node name="AttackHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
 
 [connection signal="grounded_updated" from="." to="MainCamera" method="_on_SwordsMaster_grounded_updated"]
 [connection signal="body_entered" from="SlashHit" to="SlashHit" method="_on_SlashHit_body_entered"]
