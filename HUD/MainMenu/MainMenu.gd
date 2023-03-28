@@ -43,6 +43,7 @@ func new_game():
 	reset_skill_ui()
 	reset_artefacts_ui()
 	reset_hud_ui()
+	SwordsMaster.double_jump = false
 	SaveFile.save_data()
 	SpecialSkillMenu.save_data()
 	ArtefactMenu.save_data()

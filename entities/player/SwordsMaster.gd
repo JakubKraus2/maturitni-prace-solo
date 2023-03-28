@@ -170,7 +170,7 @@ func _process(delta):
 	idle()
 
 func _physics_process(delta):
-	if is_on_floor() && game_data.can_double_jump == true:
+	if is_on_floor() && SaveFile.game_data.can_double_jump == true:
 		double_jump = true
 	velocity.y = velocity.y + gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
