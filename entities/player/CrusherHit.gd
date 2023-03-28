@@ -20,4 +20,4 @@ func _on_CrusherHit_body_entered(body):
 		body.get_node("AggroRange").set_deferred("monitoring", true)
 	body.hp -= PlayerAttacksDamage.crusher_damage
 	Hud.get_node("ManaBar").set_bar_value(Hud.get_node("ManaBar").value + PlayerAttacksDamage.crusher_damage_mana_gain)
-	$"../AttackHitSound".play(0.07)
+	$"../AttackHitSound".play(0.02)

@@ -79,6 +79,7 @@ func get_jump_input():
 		if is_on_floor() || $AnimationPlayer.current_animation == "CLIMBING" || double_jump == true:
 			velocity.y = jumpforce
 			double_jump = false
+			$JumpSound.play()
 			if !is_on_floor() && $AnimationPlayer.current_animation != "CLIMBING":
 				var double_jump_particle_instance = double_jump_particle.instance()
 				double_jump_particle_instance.global_position = Vector2(global_position.x, global_position.y)

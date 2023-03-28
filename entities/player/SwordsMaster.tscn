@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://assets/CHARACTERS/Sword_Master_Sprite_Sheet3.png" type="Texture" id=1]
 [ext_resource path="res://entities/player/SwordsMaster.gd" type="Script" id=2]
@@ -12,6 +12,10 @@
 [ext_resource path="res://assets/AUDIO/sounds/player_succesful_hit.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/AUDIO/sounds/player_unsuccesful_hit.mp3" type="AudioStream" id=11]
 [ext_resource path="res://assets/AUDIO/sounds/player_dash.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/AUDIO/sounds/player_movement.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/AUDIO/sounds/player_jump.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/AUDIO/sounds/player_land.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/AUDIO/sounds/player_getting_hit.ogg" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4, 9.5 )
@@ -556,6 +560,20 @@ tracks/3/keys = {
 "method": "disable_all_attack_hitboxes"
 } ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("HurtSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=37]
 resource_name = "IDLE"
@@ -604,6 +622,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 190, 191, 192, 193 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("LandSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.18 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -761,6 +793,23 @@ tracks/1/keys = {
 }, {
 "args": [  ],
 "method": "spawn_run_particle"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("MovementSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.05, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.045 ],
+"method": "play"
+}, {
+"args": [ 0.045 ],
+"method": "play"
 } ]
 }
 
@@ -1232,7 +1281,7 @@ texture = ExtResource( 1 )
 flip_h = true
 hframes = 10
 vframes = 27
-frame = 200
+frame = 221
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -1397,6 +1446,22 @@ stream = ExtResource( 11 )
 
 [node name="DashSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
+volume_db = -1.0
+
+[node name="MovementSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+volume_db = -5.0
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+volume_db = 15.0
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+volume_db = 6.0
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
 
 [connection signal="grounded_updated" from="." to="MainCamera" method="_on_SwordsMaster_grounded_updated"]
 [connection signal="body_entered" from="SlashHit" to="SlashHit" method="_on_SlashHit_body_entered"]
