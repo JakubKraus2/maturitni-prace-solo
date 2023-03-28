@@ -28,4 +28,5 @@ func close():
 	get_parent().set_process(false)
 
 func spawn():
+	$PickupSound.play()
 	$AnimationPlayer.play("OPEN")

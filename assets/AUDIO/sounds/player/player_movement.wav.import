@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/player_movement.wav-fb7dd37bf005271ed1e0b56c6cb45a41.sample"
+path="res://.import/player_movement.wav-9f312ed3a9810b581ce7467299c06664.sample"
 
 [deps]
 
-source_file="res://assets/AUDIO/sounds/player_movement.wav"
-dest_files=[ "res://.import/player_movement.wav-fb7dd37bf005271ed1e0b56c6cb45a41.sample" ]
+source_file="res://assets/AUDIO/sounds/player/player_movement.wav"
+dest_files=[ "res://.import/player_movement.wav-9f312ed3a9810b581ce7467299c06664.sample" ]
 
 [params]
 

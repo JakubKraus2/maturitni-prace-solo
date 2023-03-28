@@ -9,17 +9,17 @@
 [ext_resource path="res://entities/player/SpinSlashHit.gd" type="Script" id=7]
 [ext_resource path="res://entities/player/Camera2D.gd" type="Script" id=8]
 [ext_resource path="res://entities/player/StoneGolemSkillHit.gd" type="Script" id=9]
-[ext_resource path="res://assets/AUDIO/sounds/player_succesful_hit.ogg" type="AudioStream" id=10]
-[ext_resource path="res://assets/AUDIO/sounds/player_unsuccesful_hit.mp3" type="AudioStream" id=11]
-[ext_resource path="res://assets/AUDIO/sounds/player_dash.ogg" type="AudioStream" id=12]
-[ext_resource path="res://assets/AUDIO/sounds/player_movement.wav" type="AudioStream" id=13]
-[ext_resource path="res://assets/AUDIO/sounds/player_jump.ogg" type="AudioStream" id=14]
-[ext_resource path="res://assets/AUDIO/sounds/player_land.ogg" type="AudioStream" id=15]
-[ext_resource path="res://assets/AUDIO/sounds/player_getting_hit.ogg" type="AudioStream" id=16]
-[ext_resource path="res://assets/AUDIO/sounds/player_death.mp3" type="AudioStream" id=17]
-[ext_resource path="res://assets/AUDIO/sounds/player_heal.ogg" type="AudioStream" id=18]
-[ext_resource path="res://assets/AUDIO/sounds/player_great_spirit_burst.ogg" type="AudioStream" id=19]
-[ext_resource path="res://assets/AUDIO/sounds/player_stone_golem_skill.mp3" type="AudioStream" id=20]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_succesful_hit.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_unsuccesful_hit.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_dash.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_movement.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_jump.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_land.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_getting_hit.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_death.mp3" type="AudioStream" id=17]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_heal.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_great_spirit_burst.ogg" type="AudioStream" id=19]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_stone_golem_skill.mp3" type="AudioStream" id=20]
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4, 9.5 )
@@ -1341,7 +1341,7 @@ texture = ExtResource( 1 )
 flip_h = true
 hframes = 10
 vframes = 27
-frame = 243
+frame = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -1510,7 +1510,7 @@ volume_db = -1.0
 
 [node name="MovementSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 13 )
-volume_db = -5.0
+volume_db = -6.0
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
@@ -1518,7 +1518,7 @@ volume_db = 15.0
 
 [node name="LandSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 15 )
-volume_db = 6.0
+volume_db = 7.0
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 16 )

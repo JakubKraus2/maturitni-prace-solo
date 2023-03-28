@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/stone_explosion_anim-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/player/skils/SkillStoneGolemExplosion.gd" type="Script" id=2]
-[ext_resource path="res://assets/AUDIO/sounds/player_stone_golem_skill.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_stone_golem_skill.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 33, 21.5 )
