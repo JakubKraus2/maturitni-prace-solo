@@ -4,9 +4,12 @@ extends Area2D
 
 func _ready() -> void:
 	$AnimationPlayer.play("DEFAULT")
+	$StoneGolemSkillSound.play()
 
 func add_to_finished_count():
+	yield($StoneGolemSkillSound, "finished")
 	get_parent().finished_count += 1
+	queue_free()
 
 
 func _on_SkillStoneGolemExplosion_body_entered(body: Node) -> void:

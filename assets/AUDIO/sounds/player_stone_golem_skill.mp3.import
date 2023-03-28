@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/player_stone_golem_skill.mp3-1b08a992dd1e3ae62d677cd932217709.mp3str"
+
+[deps]
+
+source_file="res://assets/AUDIO/sounds/player_stone_golem_skill.mp3"
+dest_files=[ "res://.import/player_stone_golem_skill.mp3-1b08a992dd1e3ae62d677cd932217709.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
