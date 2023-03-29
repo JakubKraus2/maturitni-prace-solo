@@ -31,6 +31,7 @@ func move_towards_boss():
 	SwordsMaster.get_node("MainCamera").global_position.x = global_position.x
 
 func _on_ZoomTimer_timeout() -> void:
+	$CutsceneSound.play(0.06)
 	$Flash.visible = true
 	$ScreenFlash.start()
 	smoothing_enabled = false

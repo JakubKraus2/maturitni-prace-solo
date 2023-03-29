@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/joystix monospace.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/HUD/popup/unlock_popup.png" type="Texture" id=2]
+[ext_resource path="res://assets/AUDIO/sounds/items&popups/ability_unlock.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/HUD/skills/HUD_skill_menu_split_line.png" type="Texture" id=4]
 [ext_resource path="res://assets/HUD/skills/special-attacks-menu.png" type="Texture" id=5]
 [ext_resource path="res://objects/UnlockPopup.gd" type="Script" id=6]
@@ -217,6 +218,20 @@ tracks/7/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath("UnlockSound")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [node name="UnlockPopup" type="CanvasLayer"]
 visible = false
@@ -324,3 +339,6 @@ valign = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/CLOSE = SubResource( 5 )
 anims/SPAWN = SubResource( 4 )
+
+[node name="UnlockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

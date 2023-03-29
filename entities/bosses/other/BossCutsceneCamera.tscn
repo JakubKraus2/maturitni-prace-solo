@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entities/bosses/BossCamera.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/AUDIO/sounds/boss/boss_cutscene.ogg" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 override_oversampling = 5.0
@@ -54,6 +55,10 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FightStarter"]
 position = Vector2( 0, -20 )
 shape = SubResource( 3 )
+
+[node name="CutsceneSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -2.0
 
 [connection signal="timeout" from="ZoomTimer" to="." method="_on_ZoomTimer_timeout"]
 [connection signal="timeout" from="ScreenFlash" to="." method="_on_ScreenFlash_timeout"]

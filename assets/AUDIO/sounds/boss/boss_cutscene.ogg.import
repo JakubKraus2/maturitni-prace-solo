@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/boss_cutscene.ogg-7700cd4306d58af29aab69759e35436b.oggstr"
+
+[deps]
+
+source_file="res://assets/AUDIO/sounds/boss/boss_cutscene.ogg"
+dest_files=[ "res://.import/boss_cutscene.ogg-7700cd4306d58af29aab69759e35436b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

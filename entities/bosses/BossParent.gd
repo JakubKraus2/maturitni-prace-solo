@@ -61,6 +61,7 @@ func knock_back():
 
 func death():
 	if hp <= 0:
+		$DeathSound.play()
 		$SlowDownTimer.start()
 		Engine.time_scale = 0.1
 		set_physics_process(false) #boss cant move
