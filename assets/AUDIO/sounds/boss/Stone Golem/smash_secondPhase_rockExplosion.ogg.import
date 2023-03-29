@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/smash_secondPhase_rockExplosion.ogg-a33d23f239e3998a4b53cae294cad4da.oggstr"
+
+[deps]
+
+source_file="res://assets/AUDIO/sounds/boss/Stone Golem/smash_secondPhase_rockExplosion.ogg"
+dest_files=[ "res://.import/smash_secondPhase_rockExplosion.ogg-a33d23f239e3998a4b53cae294cad4da.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
