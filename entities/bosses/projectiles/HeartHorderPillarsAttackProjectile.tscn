@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/heartHorder_pillar_attack_explosion_spawner.png" type="Texture" id=1]
 [ext_resource path="res://entities/bosses/projectiles/HeartHorderPillarsAttackProjectile.gd" type="Script" id=2]
 [ext_resource path="res://assets/heart_horder_pillar_attack_laser.png" type="Texture" id=3]
 [ext_resource path="res://entities/bosses/projectiles/heartHorderPillarAttackHitbox.gd" type="Script" id=4]
+[ext_resource path="res://assets/AUDIO/sounds/boss/Heart Horder/boss_heart_horder_laser.ogg" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15, 191.5 )
@@ -66,7 +67,7 @@ tracks/3/keys = {
 "method": "set_camera_shake"
 }, {
 "args": [  ],
-"method": "queue_free"
+"method": "delete"
 } ]
 }
 tracks/4/type = "value"
@@ -80,6 +81,20 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("LaserSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [node name="HeartHorderPillarsAttackProjectileSpawner" type="Sprite"]
@@ -107,5 +122,9 @@ disabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.5
 anims/SPAWN = SubResource( 1 )
+
+[node name="LaserSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -8.0
 
 [connection signal="area_entered" from="HeartHorderPillarAttackHitbox" to="." method="_on_HeartHorderPillarAttackHitbox_area_entered"]

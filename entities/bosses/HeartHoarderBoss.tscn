@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://assets/ENEMIES/The Heart Hoarder Sprite sheet 222x119.png" type="Texture" id=1]
 [ext_resource path="res://entities/bosses/HeartHoarderBoss.gd" type="Script" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://assets/ENEMIES/Air Attack Slam Sprite sheet 246x121.png" type="Texture" id=5]
 [ext_resource path="res://entities/bosses/FallAttackHitbox.gd" type="Script" id=6]
 [ext_resource path="res://entities/bosses/2ndPhaseHitbox.gd" type="Script" id=7]
+[ext_resource path="res://assets/AUDIO/sounds/boss/Heart Horder/boss_heart_horder_port_out.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/AUDIO/sounds/boss_final_hit.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/AUDIO/sounds/boss/Heart Horder/boss_heart_horder_boomerang.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/AUDIO/sounds/boss/Heart Horder/boss_heart_horder_run.ogg" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 25 )
@@ -243,6 +247,23 @@ tracks/2/keys = {
 "values": [ {
 "args": [  ],
 "method": "spawn_boomerangs"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("BoomerangSound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.33 ],
+"method": "play"
+}, {
+"args": [ 0.33 ],
+"method": "play"
 } ]
 }
 
@@ -780,6 +801,7 @@ tracks/2/keys = {
 resource_name = "PORT_OUT"
 length = 0.7
 loop = true
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -842,6 +864,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [ Vector2( 0, 33 ) ]
 }
+tracks/5/type = "method"
+tracks/5/path = NodePath("PortOutSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.07 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "RUN"
@@ -863,6 +899,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "RUNNING_ATTACK"
 length = 2.7
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -927,6 +964,29 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("RunAttackSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.15, 0.85, 1.75, 2.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0.19 ],
+"method": "play"
+}, {
+"args": [ 0.19 ],
+"method": "play"
+}, {
+"args": [ 0.19 ],
+"method": "play"
+}, {
+"args": [ 0.19 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=43]
@@ -1460,7 +1520,7 @@ states/STAGGER/node = SubResource( 50 )
 states/STAGGER/position = Vector2( 829, 338 )
 transitions = [ "IDLE", "DEATH", SubResource( 14 ), "PORT_OUT", "PORT_IN", SubResource( 17 ), "IDLE", "PORT_OUT", SubResource( 18 ), "PORT_IN", "DEATH", SubResource( 23 ), "PORT_OUT", "DEATH", SubResource( 24 ), "PORT_IN", "RUNNING_ATTACK", SubResource( 26 ), "RUNNING_ATTACK", "DEATH", SubResource( 30 ), "FALL_ATTACK", "DEATH", SubResource( 31 ), "PORT_IN", "FALL_ATTACK", SubResource( 32 ), "IDLE_START", "IDLE", SubResource( 34 ), "PORT_IN", "PORT_OUT", SubResource( 35 ), "FALL_ATTACK", "PORT_OUT", SubResource( 36 ), "RUNNING_ATTACK", "PORT_OUT", SubResource( 37 ), "SPAWN_SWORD_ATTACK", "DEATH", SubResource( 40 ), "SPAWN_SWORD_ATTACK", "PORT_OUT", SubResource( 41 ), "PORT_IN", "SPAWN_SWORD_ATTACK", SubResource( 42 ), "SPAWN_PILLARS_ATTACK", "DEATH", SubResource( 45 ), "PORT_IN", "SPAWN_PILLARS_ATTACK", SubResource( 46 ), "SPAWN_PILLARS_ATTACK", "PORT_OUT", SubResource( 47 ), "STAGGER", "DEATH", SubResource( 51 ), "SPAWN_PILLARS_ATTACK", "STAGGER", SubResource( 52 ), "FALL_ATTACK", "STAGGER", SubResource( 53 ), "SPAWN_SWORD_ATTACK", "STAGGER", SubResource( 54 ), "RUNNING_ATTACK", "STAGGER", SubResource( 55 ), "PORT_IN", "STAGGER", SubResource( 56 ), "BOOMERANG_ATTACK", "DEATH", SubResource( 64 ), "BOOMERANG_ATTACK", "STAGGER", SubResource( 65 ), "PORT_IN", "BOOMERANG_ATTACK", SubResource( 66 ), "BOOMERANG_ATTACK", "PORT_OUT", SubResource( 67 ), "RUNNING_ATTACK", "IDLE_START", SubResource( 68 ), "FALL_ATTACK", "IDLE_START", SubResource( 69 ), "BOOMERANG_ATTACK", "IDLE_START", SubResource( 70 ), "STAGGER", "IDLE_START", SubResource( 71 ), "SPAWN_PILLARS_ATTACK", "IDLE_START", SubResource( 72 ), "SPAWN_SWORD_ATTACK", "IDLE_START", SubResource( 73 ), "PORT_IN", "IDLE_START", SubResource( 74 ), "PORT_OUT", "IDLE_START", SubResource( 75 ), "IDLE_START", "DEATH", SubResource( 76 ), "STAGGER", "2ND_PHASE_TRANSITION", SubResource( 79 ), "2ND_PHASE_TRANSITION", "PORT_OUT", SubResource( 80 ), "2ND_PHASE_TRANSITION", "DEATH", SubResource( 81 ), "IDLE_START", "PORT_OUT", SubResource( 83 ) ]
 start_node = "IDLE_START"
-graph_offset = Vector2( -42.0443, 107.214 )
+graph_offset = Vector2( -25.0443, 171.214 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
@@ -1474,7 +1534,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 36
 vframes = 16
-frame = 3
+frame = 6
 
 [node name="SpriteFallAttack" type="Sprite" parent="."]
 visible = false
@@ -1588,6 +1648,23 @@ one_shot = true
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( 0, 28.3333 )
 scale = Vector2( 4.13333, 3.3 )
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = 2.0
+pitch_scale = 1.5
+
+[node name="PortOutSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0
+pitch_scale = 0.8
+
+[node name="BoomerangSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+
+[node name="RunAttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = 6.0
 
 [connection signal="area_entered" from="RunningAttackHitbox" to="RunningAttackHitbox" method="_on_RunningAttackHitbox_area_entered"]
 [connection signal="area_entered" from="FallAttackHitbox" to="FallAttackHitbox" method="_on_FallAttackHitbox_area_entered"]

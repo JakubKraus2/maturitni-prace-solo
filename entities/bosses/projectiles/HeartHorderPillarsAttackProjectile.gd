@@ -10,6 +10,9 @@ func _ready():
 func set_camera_shake(var shake_power):
 	SwordsMaster.shake_power = shake_power
 
+func delete():
+	yield($LaserSound, "finished")
+	queue_free()
 
 func _on_HeartHorderPillarAttackHitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent().invincibility_timer.time_left == 0: #cant be damaged twice in certain period of time

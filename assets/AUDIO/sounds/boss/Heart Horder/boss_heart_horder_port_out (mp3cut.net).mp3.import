@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/boss_heart_horder_port_out (mp3cut.net).mp3-05b337960e1fb93571a5df8ec6ea2dcb.mp3str"
+
+[deps]
+
+source_file="res://assets/AUDIO/sounds/boss/Heart Horder/boss_heart_horder_port_out (mp3cut.net).mp3"
+dest_files=[ "res://.import/boss_heart_horder_port_out (mp3cut.net).mp3-05b337960e1fb93571a5df8ec6ea2dcb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
