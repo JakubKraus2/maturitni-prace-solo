@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/boss_heart_horder_fall_attack_swords.ogg-c3ad3826e8d2bcded9bcb66194f28bd8.oggstr"
+
+[deps]
+
+source_file="res://assets/AUDIO/sounds/boss/Heart Horder/boss_heart_horder_fall_attack_swords.ogg"
+dest_files=[ "res://.import/boss_heart_horder_fall_attack_swords.ogg-c3ad3826e8d2bcded9bcb66194f28bd8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
