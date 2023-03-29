@@ -19,7 +19,7 @@
 [ext_resource path="res://assets/AUDIO/sounds/player/player_death.mp3" type="AudioStream" id=17]
 [ext_resource path="res://assets/AUDIO/sounds/player/player_heal.ogg" type="AudioStream" id=18]
 [ext_resource path="res://assets/AUDIO/sounds/player/player_great_spirit_burst.ogg" type="AudioStream" id=19]
-[ext_resource path="res://assets/AUDIO/sounds/player/player_stone_golem_skill.mp3" type="AudioStream" id=20]
+[ext_resource path="res://assets/AUDIO/sounds/player/player_stone_golem_skill.ogg" type="AudioStream" id=20]
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4, 9.5 )
@@ -1525,7 +1525,7 @@ stream = ExtResource( 16 )
 
 [node name="PlayerDeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
-volume_db = 4.0
+volume_db = 12.0
 
 [node name="PlayerHealSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 18 )
@@ -1537,7 +1537,7 @@ stream = ExtResource( 19 )
 
 [node name="StoneGolemSkillSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 20 )
-volume_db = 3.0
+volume_db = -7.0
 
 [connection signal="grounded_updated" from="." to="MainCamera" method="_on_SwordsMaster_grounded_updated"]
 [connection signal="body_entered" from="SlashHit" to="SlashHit" method="_on_SlashHit_body_entered"]

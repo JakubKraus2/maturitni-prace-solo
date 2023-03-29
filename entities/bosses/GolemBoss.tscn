@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/ENEMIES/golem-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/bosses/GolemBoss.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://entities/bosses/SecondPhazeAttackHitBox.gd" type="Script" id=6]
 [ext_resource path="res://assets/AUDIO/sounds/boss_final_hit.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/AUDIO/sounds/boss/Stone Golem/boss_stone_golem_land.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/AUDIO/sounds/boss/Stone Golem/boss_stone_golem_smash.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/AUDIO/sounds/boss/Stone Golem/boss_stone_golem_second_phase_attack.mp3" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19, 17.875 )
@@ -264,7 +266,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.05 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 0.0 ],
@@ -461,6 +463,53 @@ tracks/6/keys = {
 "method": "spawn_stone_projectiles"
 } ]
 }
+tracks/7/type = "method"
+tracks/7/path = NodePath("SecondPhaseAttackSound")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4, 4.4, 4.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+}, {
+"args": [ 0.02 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "SMASH_ATTACK"
@@ -528,6 +577,20 @@ tracks/4/keys = {
 }, {
 "args": [  ],
 "method": "shake_screen_anim"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("SmashSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.02 ],
+"method": "play"
 } ]
 }
 
@@ -723,7 +786,14 @@ pitch_scale = 1.5
 
 [node name="LandSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
-volume_db = -6.0
+volume_db = -10.0
+
+[node name="SmashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+
+[node name="SecondPhaseAttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+pitch_scale = 0.8
 
 [connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
 [connection signal="timeout" from="SlowDownTimer" to="." method="_on_SlowDownTimer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/boss_stone_golem_second_phase_attack.mp3-63785264282433c1144130af97120220.mp3str"
+
+[deps]
+
+source_file="res://assets/AUDIO/sounds/boss/Stone Golem/boss_stone_golem_second_phase_attack.mp3"
+dest_files=[ "res://.import/boss_stone_golem_second_phase_attack.mp3-63785264282433c1144130af97120220.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

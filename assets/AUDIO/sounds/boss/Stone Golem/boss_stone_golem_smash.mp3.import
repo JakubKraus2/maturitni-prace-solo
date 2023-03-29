@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/boss_stone_golem_smash.mp3-e25a8ebf3bef3c35d0b3b8526bec9280.mp3str"
+
+[deps]
+
+source_file="res://assets/AUDIO/sounds/boss/Stone Golem/boss_stone_golem_smash.mp3"
+dest_files=[ "res://.import/boss_stone_golem_smash.mp3-e25a8ebf3bef3c35d0b3b8526bec9280.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
