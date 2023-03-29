@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/ENEMIES/Ghoul Sprite Sheet 62 x 33.png" type="Texture" id=1]
 [ext_resource path="res://entities/enemies/GhoulEnemy.gd" type="Script" id=2]
 [ext_resource path="res://entities/enemies/HitDetector.gd" type="Script" id=3]
 [ext_resource path="res://entities/bosses/AnimationTree.gd" type="Script" id=4]
+[ext_resource path="res://assets/AUDIO/sounds/enemies/Ghoul/enemy_ghoul_attack.mp3" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 9.5 )
@@ -67,6 +68,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("AttackSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.02 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -275,7 +290,7 @@ aggro_speed = 150
 texture = ExtResource( 1 )
 hframes = 11
 vframes = 6
-frame = 14
+frame = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -369,6 +384,10 @@ shape = SubResource( 26 )
 scale = Vector2( 2, 2 )
 process_parent = true
 physics_process_parent = true
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+pitch_scale = 1.1
 
 [connection signal="body_entered" from="CollisonDetector" to="." method="_on_CollisonDetector_body_entered"]
 [connection signal="area_entered" from="HitDetector" to="." method="_on_HitDetector_area_entered"]

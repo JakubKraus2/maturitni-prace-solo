@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/ENEMIES/projectile 16x16.png" type="Texture" id=1]
 [ext_resource path="res://entities/enemies/projectiles/Projectile.gd" type="Script" id=2]
 [ext_resource path="res://entities/enemies/projectiles/PlayerDetector.gd" type="Script" id=3]
+[ext_resource path="res://assets/AUDIO/sounds/enemies/Spitter/enemy_spitter_attack_spit_explosion.ogg" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 3, 3 )
@@ -63,6 +64,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("ExplosionSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.02 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "EXPLOSION_2"
@@ -118,6 +133,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("ExplosionSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.02 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "MOVING"
@@ -147,7 +176,6 @@ position = Vector2( 0, -1 )
 texture = ExtResource( 1 )
 hframes = 7
 vframes = 3
-frame = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -170,5 +198,9 @@ shape = SubResource( 5 )
 anims/EXPLOSION = SubResource( 2 )
 anims/EXPLOSION_2 = SubResource( 1 )
 anims/MOVING = SubResource( 3 )
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.0
 
 [connection signal="area_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_area_entered"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/enemy_ghoul_attack.mp3-ef36562b3d9b2c30f257f7705d346636.mp3str"
+
+[deps]
+
+source_file="res://assets/AUDIO/sounds/enemies/Ghoul/enemy_ghoul_attack.mp3"
+dest_files=[ "res://.import/enemy_ghoul_attack.mp3-ef36562b3d9b2c30f257f7705d346636.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

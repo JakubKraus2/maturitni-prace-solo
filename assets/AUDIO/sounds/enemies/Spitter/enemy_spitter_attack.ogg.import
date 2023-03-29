@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/enemy_spitter_attack.ogg-0652ade9ee957db8264d7df8ff70b099.oggstr"
+
+[deps]
+
+source_file="res://assets/AUDIO/sounds/enemies/Spitter/enemy_spitter_attack.ogg"
+dest_files=[ "res://.import/enemy_spitter_attack.ogg-0652ade9ee957db8264d7df8ff70b099.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
