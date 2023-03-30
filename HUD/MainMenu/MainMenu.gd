@@ -5,6 +5,7 @@ onready var settingsmenu = load("res://ControlTest.tscn")
 
 
 func _ready() -> void:
+	GlobalMusic.play_main_menu()
 	$AnimationPlayer.play("DEFAULT")
 	$Node2D/MainContainer/ButtonsCenterContainer/Buttons/LoadGameButton.disabled = true if SaveFile.game_data.current_scene == "" else false
 
@@ -23,6 +24,7 @@ func _on_NewGameButton_pressed() -> void:
 
 
 func load_game():
+	GlobalMusic.play_idle()
 	SwordsMaster.velocity.y = 0
 	SwordsMaster.velocity.x = 0
 	SwordsMaster.global_position.x = SaveFile.game_data.positionx
@@ -31,6 +33,7 @@ func load_game():
 	LoadingScreen.get_node("AnimationPlayer").play("LOADING")
 
 func new_game():
+	GlobalMusic.play_idle()
 	if SaveFile.game_data.health_amulet_equipped == true:
 		Hud.get_node("Lives").upgrade_live(-1)
 		PlayerBasicData.current_lives -= 1

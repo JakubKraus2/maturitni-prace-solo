@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/boss_heart_horder_music.ogg-0f12cc2e23d7b36a2185f337ce85580f.oggstr"
+
+[deps]
+
+source_file="res://assets/AUDIO/music/boss_heart_horder_music.ogg"
+dest_files=[ "res://.import/boss_heart_horder_music.ogg-0f12cc2e23d7b36a2185f337ce85580f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

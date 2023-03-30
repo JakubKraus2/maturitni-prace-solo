@@ -32,6 +32,7 @@ func _ready():
 
 func _process(delta):
 	if SwordsMaster.get_node("AnimationPlayerSpawn").current_animation == "SPAWN":
+		GlobalMusic.play_idle()
 		set_process(false)
 		moving_left = true
 		hp = max_hp
@@ -66,6 +67,7 @@ func knock_back():
 
 func death():
 	if hp <= 0:
+		GlobalMusic.play_idle()
 		get_parent().get_node("BossArenaBarrier").queue_free()
 		get_parent().get_node("BossArenaBarrier2").queue_free()
 		$DeathSound.play()

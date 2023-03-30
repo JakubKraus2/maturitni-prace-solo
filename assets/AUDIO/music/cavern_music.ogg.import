@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cavern_music.ogg-3af7433144e79f09272799e2730a6423.oggstr"
+
+[deps]
+
+source_file="res://assets/AUDIO/music/cavern_music.ogg"
+dest_files=[ "res://.import/cavern_music.ogg-3af7433144e79f09272799e2730a6423.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

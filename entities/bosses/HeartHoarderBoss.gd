@@ -31,6 +31,7 @@ var stagger1 = true
 
 
 func start():
+	GlobalMusic.play_heart_horder()
 	set_process(true)
 	current_state = PORT
 

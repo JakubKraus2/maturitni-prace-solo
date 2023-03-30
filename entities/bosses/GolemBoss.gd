@@ -59,6 +59,7 @@ func _process(delta):
 
 
 func start(): #start the boss
+	GlobalMusic.play_stone_golem()
 	set_process(true)
 
 func choose_state(): #choose what state boss is in
