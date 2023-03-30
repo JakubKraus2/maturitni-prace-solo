@@ -1,0 +1,252 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg2.png" type="Texture" id=1]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg3.png" type="Texture" id=2]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg4.png" type="Texture" id=3]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg.png" type="Texture" id=4]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg1.png" type="Texture" id=5]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg00.png" type="Texture" id=6]
+[ext_resource path="res://particles/Water.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/PARTICLES/particles.png" type="Texture" id=8]
+[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://particles/fog.gdshader" type="Shader" id=10]
+[ext_resource path="res://assets/BACKGROUNDS/other/floor.png" type="Texture" id=11]
+[ext_resource path="res://objects/CheckPoint.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/OBJECTS/tent0.png" type="Texture" id=13]
+[ext_resource path="res://assets/OBJECTS/tent3.png" type="Texture" id=14]
+[ext_resource path="res://assets/OBJECTS/tree0.png" type="Texture" id=15]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bush03.png" type="Texture" id=16]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/stone05.png" type="Texture" id=17]
+[ext_resource path="res://objects/DoubleJumpUnlocker.tscn" type="PackedScene" id=18]
+[ext_resource path="res://tileMaps/RED_platforms.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/WallClimbUnlocker.tscn" type="PackedScene" id=20]
+[ext_resource path="res://entities/enemies/SpitterEnemy.tscn" type="PackedScene" id=21]
+[ext_resource path="res://entities/enemies/GhoulEnemy.tscn" type="PackedScene" id=22]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 1343.88, 14 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 10, 140 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.398323, 1 ), -0.198724, 0.0, 0, 0, Vector2( 0.767296, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 10000, 1500, 1 )
+flag_disable_z = true
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 10 )
+shader_param/color = Vector3( 0.5, 0.5, 0.5 )
+shader_param/OCTAVES = 4
+
+[node name="DemoLevel2" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Darkness" type="CanvasModulate" parent="ParallaxBackground"]
+color = Color( 0.627451, 0.627451, 0.627451, 1 )
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 640, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2( 0, -725 )
+scale = Vector2( 20, 20 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 287, 102 )
+collision_layer = 32
+collision_mask = 0
+
+[node name="Floor" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 819.5, 0 )
+scale = Vector2( 5.2066, 1 )
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 731.125, 157 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -293, -5 )
+shape = SubResource( 9 )
+
+[node name="Water" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1380.5, 395 )
+scale = Vector2( 51.5156, 4 )
+z_index = 6
+
+[node name="Particles2D" type="Particles2D" parent="."]
+self_modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 2487, -112 )
+scale = Vector2( 0.3, 0.3 )
+amount = 500
+lifetime = 10.0
+preprocess = 10.0
+visibility_rect = Rect2( -10000, -10000, 20000, 20000 )
+process_material = SubResource( 7 )
+texture = ExtResource( 8 )
+
+[node name="Fog" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 2499, -14 )
+scale = Vector2( 99.3984, 25 )
+texture = ExtResource( 9 )
+
+[node name="DecorationsFront" type="Node2D" parent="."]
+z_index = 5
+
+[node name="Tree" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 97, 158 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 15 )
+
+[node name="Tree2" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 890, 185 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 15 )
+
+[node name="Tree3" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 953, 162 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 15 )
+
+[node name="DecorationsBehind" type="Node2D" parent="."]
+position = Vector2( -110, 0 )
+
+[node name="Bush" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 496, 199 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 16 )
+
+[node name="Bush2" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 782, 197 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 17 )
+
+[node name="Tent" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 613, 213 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+
+[node name="Tent2" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 865, 189 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
+[node name="Tree" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 352, 129 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 15 )
+
+[node name="Tree2" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 1212, 129 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 15 )
+
+[node name="CheckPoint" parent="." instance=ExtResource( 12 )]
+position = Vector2( 276, 226 )
+
+[node name="DoubleJumpUnlocker" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1240, 229 )
+
+[node name="RED_platforms" parent="." instance=ExtResource( 19 )]
+collision_layer = 32
+collision_mask = 0
+tile_data = PoolIntArray( -1900520, 0, 0, -1900519, 0, 2, -1834984, 0, 65536, -1834983, 0, 65538, -1834974, 0, 0, -1834973, 0, 1, -1834972, 0, 1, -1834971, 0, 2, -1769448, 0, 65536, -1769447, 0, 65538, -1769438, 0, 131072, -1769437, 0, 131073, -1769436, 0, 131073, -1769435, 0, 131074, -1769427, 0, 0, -1769426, 0, 1, -1769425, 0, 1, -1769424, 0, 1, -1769423, 0, 1, -1769422, 0, 1, -1769421, 0, 1, -1769420, 0, 1, -1769419, 0, 1, -1769418, 0, 1, -1769417, 0, 1, -1769416, 0, 1, -1769415, 0, 1, -1769414, 0, 1, -1769413, 0, 1, -1769412, 0, 1, -1769411, 0, 1, -1769410, 0, 1, -1769409, 0, 1, -1769408, 0, 1, -1769407, 0, 1, -1769406, 0, 1, -1769405, 0, 1, -1769404, 0, 2, -1703912, 0, 65536, -1703911, 0, 65538, -1703891, 0, 65536, -1703890, 0, 65537, -1703889, 0, 131073, -1703888, 0, 131073, -1703887, 0, 131073, -1703886, 0, 131073, -1703885, 0, 131073, -1703884, 0, 131073, -1703883, 0, 131073, -1703882, 0, 131073, -1703881, 0, 131073, -1703880, 0, 131073, -1703879, 0, 131073, -1703878, 0, 131073, -1703877, 0, 131073, -1703876, 0, 131073, -1703875, 0, 131073, -1703874, 0, 131073, -1703873, 0, 131073, -1703872, 0, 131073, -1703871, 0, 131073, -1703870, 0, 131073, -1703869, 0, 131073, -1703868, 0, 131074, -1638376, 0, 65536, -1638375, 0, 65538, -1638355, 0, 65536, -1638354, 0, 65538, -1572840, 0, 65536, -1572839, 0, 65538, -1572819, 0, 131072, -1572818, 0, 131074, -1507304, 0, 65536, -1507303, 0, 65538, -1441768, 0, 65536, -1441767, 0, 65538, -1376232, 0, 65536, -1376231, 0, 65538, -1310696, 0, 65536, -1310695, 0, 65538, -1245160, 0, 65536, -1245159, 0, 65538, -1179624, 0, 65536, -1179623, 0, 65538, -1114088, 0, 65536, -1114087, 0, 65538, -1048552, 0, 65536, -1048551, 0, 65538, -983016, 0, 65536, -983015, 0, 65537, -983014, 0, 1, -983013, 0, 1, -983012, 0, 1, -983011, 0, 1, -983010, 0, 1, -983009, 0, 1, -983008, 0, 1, -983007, 0, 1, -983006, 0, 1, -983005, 0, 1, -983004, 0, 1, -983003, 0, 1, -983002, 0, 1, -983001, 0, 1, -983000, 0, 1, -982999, 0, 2, -917480, 0, 131072, -917479, 0, 131073, -917478, 0, 131073, -917477, 0, 131073, -917476, 0, 131073, -917475, 0, 131073, -917474, 0, 131073, -917473, 0, 131073, -917472, 0, 131073, -917471, 0, 131073, -917470, 0, 131073, -917469, 0, 131073, -917468, 0, 131073, -917467, 0, 131073, -917466, 0, 131073, -917465, 0, 131073, -917464, 0, 131073, -917463, 0, 131074, -851860, 0, 0, -851859, 0, 2, -786324, 0, 65536, -786323, 0, 65538, -720847, 0, 0, -720846, 0, 1, -720845, 0, 1, -720844, 0, 1, -720843, 0, 1, -720842, 0, 1, -720841, 0, 1, -720840, 0, 1, -720839, 0, 1, -720838, 0, 1, -720837, 0, 1, -720836, 0, 1, -720835, 0, 1, -720834, 0, 1, -720833, 0, 1, -720832, 0, 1, -720831, 0, 1, -720830, 0, 1, -720829, 0, 1, -720828, 0, 1, -720827, 0, 1, -720826, 0, 2, -720788, 0, 65536, -720787, 0, 65538, -655311, 0, 131072, -655310, 0, 131073, -655309, 0, 131073, -655308, 0, 131073, -655307, 0, 131073, -655306, 0, 131073, -655305, 0, 131073, -655304, 0, 131073, -655303, 0, 131073, -655302, 0, 131073, -655301, 0, 131073, -655300, 0, 131073, -655299, 0, 131073, -655298, 0, 131073, -655297, 0, 131073, -655296, 0, 131073, -655295, 0, 131073, -655294, 0, 131073, -655293, 0, 131073, -655292, 0, 131073, -655291, 0, 131073, -655290, 0, 131074, -655252, 0, 65536, -655251, 0, 65538, -589716, 0, 65536, -589715, 0, 65538, -524209, 0, 0, -524208, 0, 1, -524207, 0, 1, -524206, 0, 1, -524205, 0, 1, -524204, 0, 2, -524180, 0, 65536, -524179, 0, 65538, -458673, 0, 131072, -458672, 0, 131073, -458671, 0, 131073, -458670, 0, 131073, -458669, 0, 131073, -458668, 0, 131074, -458644, 0, 65536, -458643, 0, 65538, -393108, 0, 65536, -393107, 0, 65538, -327572, 0, 65536, -327571, 0, 65538, -262036, 0, 65536, -262035, 0, 65538, -196500, 0, 65536, -196499, 0, 65538, -130964, 0, 65536, -130963, 0, 65538, -65428, 0, 65536, -65427, 0, 65538, 89, 0, 0, 90, 0, 1, 91, 0, 1, 92, 0, 1, 93, 0, 2, 108, 0, 65536, 109, 0, 65538, 65625, 0, 131072, 65626, 0, 131073, 65627, 0, 131073, 65628, 0, 131073, 65629, 0, 131074, 65644, 0, 65536, 65645, 0, 65538, 131180, 0, 65536, 131181, 0, 65538, 196716, 0, 65536, 196717, 0, 65538, 262243, 0, 0, 262244, 0, 1, 262245, 0, 1, 262246, 0, 2, 262252, 0, 65536, 262253, 0, 65538, 327779, 0, 131072, 327780, 0, 131073, 327781, 0, 131073, 327782, 0, 131074, 327788, 0, 65536, 327789, 0, 65538, 393324, 0, 65536, 393325, 0, 65538, 458860, 0, 65536, 458861, 0, 65538, 524396, 0, 65536, 524397, 0, 65538, 589932, 0, 65536, 589933, 0, 65538, 655448, 0, 0, 655449, 0, 1, 655450, 0, 1, 655451, 0, 1, 655452, 0, 1, 655453, 0, 1, 655454, 0, 2, 655468, 0, 65536, 655469, 0, 65538, 720984, 0, 131072, 720985, 0, 131073, 720986, 0, 131073, 720987, 0, 131073, 720988, 0, 131073, 720989, 0, 131073, 720990, 0, 131074, 721004, 0, 65536, 721005, 0, 65538, 786540, 0, 65536, 786541, 0, 65538, 852076, 0, 65536, 852077, 0, 65538, 917612, 0, 131072, 917613, 0, 131074 )
+
+[node name="WallClimbUnlocker" parent="." instance=ExtResource( 20 )]
+position = Vector2( 614, -248 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="GhoulEnemy" parent="Enemies" instance=ExtResource( 22 )]
+position = Vector2( 1452, 142 )
+
+[node name="GhoulEnemy2" parent="Enemies" instance=ExtResource( 22 )]
+position = Vector2( 1458, -18 )
+
+[node name="GhoulEnemy3" parent="Enemies" instance=ExtResource( 22 )]
+position = Vector2( 856, -192 )
+
+[node name="SpitterEnemy" parent="Enemies" instance=ExtResource( 21 )]
+position = Vector2( 1051, -199 )
+
+[node name="SpitterEnemy2" parent="Enemies" instance=ExtResource( 21 )]
+position = Vector2( 456, -262 )
+
+[node name="SpitterEnemy3" parent="Enemies" instance=ExtResource( 21 )]
+position = Vector2( 920, -456 )
+
+[node name="GhoulEnemy4" parent="Enemies" instance=ExtResource( 22 )]
+position = Vector2( 1070, -450 )
+
+[node name="GhoulEnemy5" parent="Enemies" instance=ExtResource( 22 )]
+position = Vector2( 749, -449 )

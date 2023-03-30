@@ -74,8 +74,8 @@ func reset_player():
 	SwordsMaster.velocity.x = 0
 	SwordsMaster.global_position.x = SaveFile.game_data.positionx
 	SwordsMaster.global_position.y = SaveFile.game_data.positiony
-	get_tree().change_scene("res://scenes/BossArena.tscn")
-	SaveFile.game_data.current_scene = "res://scenes/BossArena.tscn"
+	get_tree().change_scene("res://scenes/DemoLevel.tscn")
+	SaveFile.game_data.current_scene = "res://scenes/DemoLevel.tscn"
 
 func reset_hud_ui():
 	Hud.get_node("Lives").check_max_lives()
