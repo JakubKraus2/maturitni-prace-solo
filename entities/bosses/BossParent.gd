@@ -61,6 +61,8 @@ func knock_back():
 
 func death():
 	if hp <= 0:
+		get_parent().get_node("BossArenaBarrier").queue_free()
+		get_parent().get_node("BossArenaBarrier2").queue_free()
 		$DeathSound.play()
 		$SlowDownTimer.start()
 		Engine.time_scale = 0.1

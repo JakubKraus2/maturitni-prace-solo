@@ -6,6 +6,7 @@ func _ready() -> void:
 	set_process(false)
 
 func start():
+	trap_player()
 	zoom = Vector2(0.9, 0.9)
 	Hud.visible = false
 	HudSkill.visible = false
@@ -61,3 +62,9 @@ func _on_ScreenFlash_timeout() -> void:
 func _on_FightStarter_area_entered(area: Area2D) -> void:
 	set_process(true)
 	start()
+
+func trap_player():
+	get_parent().get_parent().get_node("BossArenaBarrier").visible = true
+	get_parent().get_parent().get_node("BossArenaBarrier").get_node("CollisionShape2D").set_deferred("disabled", false)
+	get_parent().get_parent().get_node("BossArenaBarrier2").visible = true
+	get_parent().get_parent().get_node("BossArenaBarrier2").get_node("CollisionShape2D").set_deferred("disabled", false)
