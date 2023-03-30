@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://assets/BACKGROUNDS/campsite/bg3.png" type="Texture" id=1]
 [ext_resource path="res://assets/BACKGROUNDS/campsite/bg1.png" type="Texture" id=2]
@@ -37,9 +37,12 @@
 [ext_resource path="res://assets/BACKGROUNDS/campsite/stone07.png" type="Texture" id=35]
 [ext_resource path="res://objects/CheckPoint.tscn" type="PackedScene" id=36]
 [ext_resource path="res://entities/bosses/GolemBoss.tscn" type="PackedScene" id=37]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/stone06.png" type="Texture" id=38]
+[ext_resource path="res://entities/bosses/other/BossCutsceneCamera.tscn" type="PackedScene" id=39]
+[ext_resource path="res://HUD/boss/BossHealthBar.tscn" type="PackedScene" id=40]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2865.38, 14 )
+extents = Vector2( 2719.88, 14 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 140 )
@@ -309,12 +312,12 @@ scale = Vector2( 4.42622, 1 )
 texture = ExtResource( 6 )
 
 [node name="Floor3" type="Sprite" parent="StaticBody2D"]
-position = Vector2( 4542.75, 5 )
-scale = Vector2( 1.99392, 1 )
+position = Vector2( 4906.75, 5 )
+scale = Vector2( 3.25781, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 2252.63, 157 )
+position = Vector2( 2107.13, 157 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
@@ -322,7 +325,7 @@ position = Vector2( -293, -5 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 5106, 29 )
+position = Vector2( 4810, 40 )
 shape = SubResource( 23 )
 
 [node name="Water" parent="." instance=ExtResource( 7 )]
@@ -511,6 +514,11 @@ position = Vector2( 3392, 123 )
 scale = Vector2( 4, 5 )
 texture = ExtResource( 15 )
 
+[node name="Tree5" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 4498, 98 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 34 )
+
 [node name="DecorationsBehind" type="Node2D" parent="."]
 position = Vector2( -75.0004, 6 )
 
@@ -579,6 +587,11 @@ texture = ExtResource( 19 )
 position = Vector2( 3475, 219 )
 texture = ExtResource( 29 )
 
+[node name="Tree7" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 4356, 67 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 34 )
+
 [node name="Rock2" type="Sprite" parent="DecorationsBehind"]
 position = Vector2( 3692, 201 )
 scale = Vector2( 2, 2 )
@@ -586,6 +599,46 @@ texture = ExtResource( 27 )
 
 [node name="Rock3" type="Sprite" parent="DecorationsBehind"]
 position = Vector2( 3232, 218 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 35 )
+
+[node name="Rock4" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 4306, 200 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 27 )
+
+[node name="Tree6" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 4741, 108 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 34 )
+
+[node name="Rock5" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 4746, 201 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 27 )
+
+[node name="Rock6" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 4635, 220 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 38 )
+
+[node name="Rock7" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 5033, 203 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 29 )
+
+[node name="Rock9" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 4902, 219 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 35 )
+
+[node name="Tree5" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 4959, 126 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 34 )
+
+[node name="Rock8" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 4471, 220 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 35 )
 
@@ -619,7 +672,7 @@ script = ExtResource( 23 )
 z_index = 1025
 texture = ExtResource( 22 )
 hframes = 11
-frame = 6
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLivesUpgrade"]
 position = Vector2( 24.3, -1 )
@@ -665,6 +718,10 @@ position = Vector2( 3947, 226 )
 
 [node name="GolemBoss" parent="." instance=ExtResource( 37 )]
 position = Vector2( 4769, 189 )
+
+[node name="BossCamera" parent="GolemBoss" instance=ExtResource( 39 )]
+
+[node name="BossHealthBar" parent="GolemBoss" instance=ExtResource( 40 )]
 
 [connection signal="area_entered" from="Items/ItemLivesUpgrade" to="Items/ItemLivesUpgrade" method="_on_Item_area_entered"]
 [connection signal="area_exited" from="Items/ItemLivesUpgrade" to="Items/ItemLivesUpgrade" method="_on_Item_area_exited"]
