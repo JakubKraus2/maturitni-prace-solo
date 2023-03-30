@@ -698,7 +698,6 @@ texture = ExtResource( 1 )
 offset = Vector2( -5, 0 )
 hframes = 6
 vframes = 8
-frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -782,7 +781,7 @@ scale = Vector2( 3.35, 2.9 )
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = 2.0
+volume_db = -2.0
 pitch_scale = 1.5
 
 [node name="LandSound" type="AudioStreamPlayer2D" parent="."]

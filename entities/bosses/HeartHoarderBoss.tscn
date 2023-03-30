@@ -1596,7 +1596,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 36
 vframes = 16
-frame = 5
+frame = 6
 
 [node name="SpriteFallAttack" type="Sprite" parent="."]
 visible = false
@@ -1714,7 +1714,7 @@ scale = Vector2( 4.13333, 3.3 )
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = 2.0
+volume_db = -2.0
 pitch_scale = 1.5
 
 [node name="PortOutSound" type="AudioStreamPlayer2D" parent="."]

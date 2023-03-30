@@ -39,6 +39,11 @@ func _process(delta):
 		global_position.x = game_data.current_positionx
 		global_position.y = game_data.current_positiony
 		_ready()
+		get_parent().get_parent().get_node("BossArenaBarrier").visible = false
+		get_parent().get_parent().get_node("BossArenaBarrier").get_node("CollisionShape2D").set_deferred("disabled", true)
+		get_parent().get_parent().get_node("BossArenaBarrier2").visible = false
+		get_parent().get_parent().get_node("BossArenaBarrier2").get_node("CollisionShape2D").set_deferred("disabled", true)
+
 
 func _physics_process(delta):
 	velocity.y = velocity.y + gravity
