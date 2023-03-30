@@ -142,6 +142,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitDetector/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "HURT"
@@ -284,7 +296,7 @@ extents = Vector2( 272, 88 )
 collision_layer = 2
 collision_mask = 32
 script = ExtResource( 2 )
-speed = 80
+speed = 0
 standard_speed = 80
 aggro_speed = 120
 max_knockback_power = 120
@@ -295,7 +307,7 @@ position = Vector2( -9, 3 )
 texture = ExtResource( 1 )
 hframes = 9
 vframes = 5
-frame = 11
+frame = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
