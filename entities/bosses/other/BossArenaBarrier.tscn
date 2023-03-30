@@ -7,7 +7,6 @@ extents = Vector2( 11, 144 )
 
 [node name="BossArenaBarrier" type="StaticBody2D"]
 visible = false
-collision_layer = 32
 collision_mask = 0
 
 [node name="Sprite" type="Sprite" parent="."]

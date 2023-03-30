@@ -84,14 +84,14 @@ func teleport():
 		BOOMERANG_ATTACK:
 			boomerang_attack_teleport()
 		_:
-			global_position = Vector2(rand_range(64, 615), rand_range(90, 220))
+			global_position = Vector2(rand_range(4770, 5330), rand_range(70, 200))
 
 
 func spawn_pillars_attack_teleport():
-	global_position = Vector2(320+64, 160)
+	global_position = Vector2(5050+64, 150)
 
 func boomerang_attack_teleport():
-	global_position = Vector2(320+64, 100)
+	global_position = Vector2(5050+64, 100)
 
 
 func spawn_swords():
@@ -114,7 +114,7 @@ func spawn_pillars():
 	for i in 7:
 		yield(get_tree().create_timer(0.1), "timeout")
 		var pillar_attack_projectile_instance = pillar_attack_projectile.instance()
-		pillar_attack_projectile_instance.global_position = Vector2(80 + (i*90), 335)
+		pillar_attack_projectile_instance.global_position = Vector2(4770 + (i*90), 320)
 		get_parent().add_child(pillar_attack_projectile_instance)
 
 

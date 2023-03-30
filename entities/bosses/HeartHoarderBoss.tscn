@@ -1596,7 +1596,6 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 36
 vframes = 16
-frame = 6
 
 [node name="SpriteFallAttack" type="Sprite" parent="."]
 visible = false
