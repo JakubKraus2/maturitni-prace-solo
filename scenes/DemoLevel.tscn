@@ -1,0 +1,241 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg3.png" type="Texture" id=1]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg1.png" type="Texture" id=2]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg2.png" type="Texture" id=3]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg.png" type="Texture" id=4]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bg4.png" type="Texture" id=5]
+[ext_resource path="res://assets/BACKGROUNDS/other/floor.png" type="Texture" id=6]
+[ext_resource path="res://particles/Water.tscn" type="PackedScene" id=7]
+[ext_resource path="res://particles/Fog.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/PARTICLES/particles.png" type="Texture" id=9]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bush01.png" type="Texture" id=10]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bush02.png" type="Texture" id=11]
+[ext_resource path="res://entities/enemies/GhoulEnemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bush03.png" type="Texture" id=13]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/obstacle03.png" type="Texture" id=14]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/obstacle02.png" type="Texture" id=15]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/bush04.png" type="Texture" id=16]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/skull03.png" type="Texture" id=17]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/skull02.png" type="Texture" id=18]
+[ext_resource path="res://assets/BACKGROUNDS/campsite/skull01.png" type="Texture" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1025.75, 14 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 140 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.398323, 1 ), -0.198724, 0.0, 0, 0, Vector2( 0.767296, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 5000.0
+flag_disable_z = true
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 5 )
+
+[node name="DemoLevel" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Darkness" type="CanvasModulate" parent="ParallaxBackground"]
+color = Color( 0.627451, 0.627451, 0.627451, 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 864, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 0, -100 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 287, 102 )
+collision_layer = 32
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 370.5, 0 )
+scale = Vector2( 3.64757, 1 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 413, 157 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -293, -5 )
+shape = SubResource( 2 )
+
+[node name="Water" parent="." instance=ExtResource( 7 )]
+position = Vector2( 675.5, 395 )
+scale = Vector2( 33.1406, 3.95313 )
+z_index = 6
+
+[node name="Fog" parent="." instance=ExtResource( 8 )]
+position = Vector2( 505, 209 )
+scale = Vector2( 38.5, 16.2188 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+self_modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 347, 39 )
+scale = Vector2( 0.3, 0.3 )
+amount = 500
+lifetime = 10.0
+preprocess = 10.0
+visibility_rect = Rect2( -10000, -10000, 20000, 20000 )
+process_material = SubResource( 3 )
+texture = ExtResource( 9 )
+
+[node name="DecorationsFront" type="Node2D" parent="."]
+position = Vector2( -0.000366211, 18 )
+z_index = 5
+
+[node name="Bush" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 146, 97 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+offset = Vector2( 235.667, 44 )
+
+[node name="Bush2" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 200, 233 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+
+[node name="Bush3" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 1577, 234 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+
+[node name="Bush4" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 759, 245 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 11 )
+
+[node name="Bush5" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 853, 229 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+
+[node name="Bush6" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 1718, 212 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="Structure" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 1135, 188 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 15 )
+
+[node name="Structure2" type="Sprite" parent="DecorationsFront/Structure"]
+position = Vector2( 0, -47.6667 )
+texture = ExtResource( 15 )
+
+[node name="SkullStick" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 1061, 222 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 19 )
+
+[node name="SkullStick2" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 1205, 221 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 19 )
+
+[node name="SkullStick3" type="Sprite" parent="DecorationsFront"]
+position = Vector2( 1226, 230 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 18 )
+
+[node name="DecorationsBehind" type="Node2D" parent="."]
+position = Vector2( -75.0004, 6 )
+
+[node name="Bush" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 454, 172 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="Bush3" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 567, 206 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 16 )
+
+[node name="Bush2" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 1121, 174 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="Structure" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 722, 145 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+
+[node name="SkullStick" type="Sprite" parent="DecorationsBehind"]
+position = Vector2( 779, 215 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 17 )
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( 10, -1 )
+
+[node name="GhoulEnemy" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 1305, 220 )
+
+[node name="GhoulEnemy2" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 1446, 222 )
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color( 0.627451, 0.627451, 0.627451, 1 )

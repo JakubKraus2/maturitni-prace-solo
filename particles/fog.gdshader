@@ -38,5 +38,5 @@ void fragment(){
 	vec2 motion = vec2(fbm(coord + TIME * 0.5)); //should be the fog speed
 	float final = fbm(coord + motion);
 	
-	COLOR = vec4(color, final * 0.1); //change fog intensity
+	COLOR = vec4(color, final * 0.2); //change fog intensity
 }
