@@ -1,6 +1,10 @@
 [
-    {"name": "NPC", "text": "Oh yes... Lost, are we? Of course you are. No shame in it."},
-    {"name": "Player", "text": "cau"},
-    {"name": "NPC", "text": "jak to slape"},
-    {"name": "Player", "text": "dobry bracho"}
+    {"name": "NPC", "text": "You defeated the Stone Golem?"},
+    {"name": "Player", "text": "Extraordinary"},
+    {"name": "NPC", "text": "Maybe you could help me"},
+    {"name": "Player", "text": "There is a monster rulling over this region"},
+    {"name": "Player", "text": "Please get rid of it"},
+    {"name": "Player", "text": "I can give you the ability to DOUBLE JUMP"},
+    {"name": "Player", "text": "It may come in handy"},
+    {"name": "Player", "text": "Pray to the statue just few steps ahead and it should grant you with the power"}
 ]
