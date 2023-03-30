@@ -43,7 +43,7 @@
 [ext_resource path="res://entities/bosses/other/BossArenaBarrier.tscn" type="PackedScene" id=41]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2719.88, 14 )
+extents = Vector2( 2961.38, 14 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 140 )
@@ -318,7 +318,7 @@ scale = Vector2( 3.25781, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 2107.13, 157 )
+position = Vector2( 2348.63, 157 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
@@ -326,7 +326,7 @@ position = Vector2( -293, -5 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 4810, 40 )
+position = Vector2( 5300, 32 )
 shape = SubResource( 23 )
 
 [node name="Water" parent="." instance=ExtResource( 7 )]
@@ -335,8 +335,8 @@ scale = Vector2( 100, 4 )
 z_index = 6
 
 [node name="Fog" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2411.75, -14.4992 )
-scale = Vector2( 96.3203, 25 )
+position = Vector2( 2510.25, -14.4992 )
+scale = Vector2( 99.3984, 25 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 self_modulate = Color( 1, 1, 1, 0.470588 )
@@ -673,7 +673,7 @@ script = ExtResource( 23 )
 z_index = 1025
 texture = ExtResource( 22 )
 hframes = 11
-frame = 1
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLivesUpgrade"]
 position = Vector2( 24.3, -1 )
