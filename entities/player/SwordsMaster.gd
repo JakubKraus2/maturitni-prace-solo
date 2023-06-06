@@ -40,8 +40,8 @@ var fireball = load("res://entities/player/skils/SkillFireballProjectile.tscn")
 func _ready() -> void:
 	var file = File.new()
 	if file.file_exists(SaveFile.SAVE_PATH):
-		global_position.x = game_data.positionx
-		global_position.y = game_data.positiony
+		global_position.x = SaveFile.game_data.positionx
+		global_position.y = SaveFile.game_data.positiony
 	else:
 		global_position.x = 0
 		global_position.y = 0
@@ -126,7 +126,7 @@ func get_attack_input():
 		$AnimationPlayer.play(HudSkill.current_skill3)
 
 func wall_climb():
-	if !is_on_floor() && $WallClimbDetector.get_overlapping_bodies() && !$AnimationPlayer.current_animation == "JUMP_START" && !$AnimationPlayer.current_animation == "DASH" && game_data.can_wall_climb == true:
+	if !is_on_floor() && $WallClimbDetector.get_overlapping_bodies() && !$AnimationPlayer.current_animation == "JUMP_START" && !$AnimationPlayer.current_animation == "DASH" && SaveFile.game_data.can_wall_climb == true:
 		$AnimationPlayer.play("CLIMBING")
 		can_dash = true
 		if Input.is_action_pressed("ui_down"):
@@ -225,15 +225,15 @@ func death_anim():
 func load_after_death():
 	velocity.y = 0
 	velocity.x = 0
-	get_tree().change_scene(game_data.current_scene)
+	get_tree().change_scene(SaveFile.game_data.current_scene)
 	Hud.get_node("Lives").set_physics_process(true)
 	Hud.get_node("Healing").set_physics_process(true)
 	Hud.visible = true
 	HudSkill.visible = true
-	print(game_data)
+	print(SaveFile.game_data)
 	PlayerBasicData._ready()
-	global_position.x = game_data.positionx
-	global_position.y = game_data.positiony
+	global_position.x = SaveFile.game_data.positionx
+	global_position.y = SaveFile.game_data.positiony
 	Hud.get_node("Lives").update_lives()
 	Hud.get_node("Healing").update_healing()
 	Hud.get_node("ManaBar").set_to_max()
