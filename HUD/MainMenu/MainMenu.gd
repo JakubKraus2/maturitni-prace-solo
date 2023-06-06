@@ -81,10 +81,8 @@ func reset_player():
 	SaveFile.game_data.current_scene = "res://scenes/DemoLevel.tscn"
 
 func reset_hud_ui():
-	Hud.get_node("Lives").check_max_lives()
-	Hud.get_node("Lives").update_lives()
-	Hud.get_node("Healing").check_max_healing()
-	Hud.get_node("Healing").update_healing()
+	Hud.get_node("Lives").reset_lives()
+	Hud.get_node("Healing").reset_healing()
 	Hud.get_node("ManaBar").set_to_max()
 
 func reset_skill_ui():

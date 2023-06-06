@@ -53,8 +53,14 @@ func update_healing():
 			get_child(i).texture = load("res://assets/HUD/Healing.png")
 		else:
 			get_child(i).texture = load("res://assets/HUD/Healing_empty.png")
+#
+#func check_max_healing():
+#	for i in get_children().size():
+#		if i > PlayerBasicData.max_healing-1:
+#			get_child(i).remove_and_skip()
 
-func check_max_healing():
-	for i in get_children().size():
-		if i > PlayerBasicData.max_healing-1:
-			get_child(i).remove_and_skip()
+func reset_healing():
+	for i in get_children():
+		remove_child(i)
+		i.queue_free()
+	draw_healing()

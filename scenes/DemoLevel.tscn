@@ -432,7 +432,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DecorationsFront/StructureEnemy/StaticBody2D"]
 position = Vector2( 24.5667, -7.59999 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DecorationsFront/StructureEnemy/StaticBody2D"]
@@ -674,7 +673,7 @@ script = ExtResource( 23 )
 z_index = 1025
 texture = ExtResource( 22 )
 hframes = 11
-frame = 8
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemLivesUpgrade"]
 position = Vector2( 24.3, -1 )
@@ -732,7 +731,8 @@ position = Vector2( 5097, 109 )
 position = Vector2( 4392, 105 )
 
 [node name="PortToLevel2" parent="." instance=ExtResource( 42 )]
-position = Vector2( 5450, 121 )
+position = Vector2( 5530, 119 )
+scale = Vector2( 22.52, 1 )
 
 [connection signal="area_entered" from="Items/ItemLivesUpgrade" to="Items/ItemLivesUpgrade" method="_on_Item_area_entered"]
 [connection signal="area_exited" from="Items/ItemLivesUpgrade" to="Items/ItemLivesUpgrade" method="_on_Item_area_exited"]

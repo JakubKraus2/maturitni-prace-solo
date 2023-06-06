@@ -220,4 +220,5 @@ position = Vector2( 625, 201 )
 dialogue_file = "res://dialogue_system/json_dialogues/NPC.json"
 
 [node name="PortToLevel3" parent="." instance=ExtResource( 21 )]
-position = Vector2( 1627, 122 )
+position = Vector2( 1783, 120 )
+scale = Vector2( 27.12, 1 )

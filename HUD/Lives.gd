@@ -46,8 +46,14 @@ func update_lives():
 			get_child(i).texture = load("res://assets/HUD/Heart.png")
 		else:
 			get_child(i).texture = load("res://assets/HUD/Heart_empty.png")
+#
+#func check_max_lives():
+#	for i in get_children().size():
+#		if i > PlayerBasicData.max_lives-1:
+#			get_child(i).remove_and_skip()
 
-func check_max_lives():
-	for i in get_children().size():
-		if i > PlayerBasicData.max_lives-1:
-			get_child(i).remove_and_skip()
+func reset_lives():
+	for i in get_children():
+		remove_child(i)
+		i.queue_free()
+	draw_lives()
